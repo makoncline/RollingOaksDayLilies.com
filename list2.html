@@ -16,7 +16,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 			<!-- loads flowlist table data from file -->
 		<script> 
-		   $(function () {$.get("flowerDataTable.html", function (data) {$("#includedContent").append(data);});});
+		   	$.get("flowerDataTable.html", function (data) {
+		   		$("#includedContent").html(data);
+		   	});
 		</script>
  
 
