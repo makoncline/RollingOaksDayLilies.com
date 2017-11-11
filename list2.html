@@ -16,7 +16,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 			<!-- loads flowlist table data from file -->
 		<script> 
-			$.ajax({url:"flowerTableData.html",dataType:"text"}).done(function(data){$('#includedContent').html(data);});
+		   $(function () {$.get("flowerDataTable.html", function (data) {$("#includedContent").append(data);});});
 		</script>
  
 
@@ -111,11 +111,9 @@
 					</tr>
 				</thead>
 				<tbody>
-					<div id="tableData">
 						<!-- start table data here -->
 						<div id ="includedContent"></div>
 						
-					</div>
 				</tbody>
 			</table>
 		</div>
