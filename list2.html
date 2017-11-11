@@ -118,11 +118,9 @@
 		<!-- end jumbotron -->
 	</body>
 		<!-- loads flowlist table data from file -->
-	<script> 
-		$(function(){
-			$("#includedContent").load("flowerTableData.txt"); 
-		});
-	</script>
+		<script> 
+			$.ajax({url:"flowerTableData.html",dataType:"text"}).done(function(data){$('#includedContent').html(data);});
+		</script>
 
 	</html>
 
