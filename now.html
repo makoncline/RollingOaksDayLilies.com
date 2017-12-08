@@ -16,7 +16,7 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>  | RollingOaksDaylilies.com</title>
+	<title> Now | RollingOaksDaylilies.com</title>
 	<!-- Add Favicon -->
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -139,68 +139,13 @@
 
 <div class="container-fluid">
 	<div class ="text-center">
-		<div class="container-fluid">
-	<!-- logo with address and contact info -->
-	<section id="headerSection">
-		<div id="logo">
-			<img src="rollingOaksDayliliesLogo.png" class="img-responsive" alt="Rolling Oaks Daylilies" style="max-height:300px;">
-			<p class="text-center"> Rolling Oaks Daylilies - The Garden of Kay Cline</p>
-			<p class="text-center"> <a class="subtleLink" href="https://goo.gl/maps/BKg722pc9e52" target="_blank">4 Oak Lane | Picayune, MS 39466 </a> | <a class="subtleLink"href="tel:(601) 590-1349" target="_blank">(601) 590-1349 </a></p>
-		</div>
-	</section>
-	
-	<div class="row">
-		<div class="col-md-5 push-md-7">
-			<section id="contact">
-				<div class="jumbotron container-fluid">
-					<h2 class="text-center">CONTACT</h2>
-					<form>
-						<div class="form-group" id="contctForm">
-							<!-- name -->
-
-							<input type="name" class="form-control" id="nameInput" placeholder="Name">
-
-							<!-- phone number -->
-
-							<input type="phoneNumber" class="form-control" id="phoneNumberInput" placeholder="Phone Number">
-							<!-- email address -->
-
-							<input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Email Address">
-							<!-- message -->
-							<textarea class="form-control" id="messageInput" rows="5" placeholder="Message"></textarea>
-							<input type="button" class="btn btn-primary" id="submitBtn" value="SUBMIT">
-						</div>
-					</form>
-				</div>
-			</div>
-			<div class="col-md-7 pull-md-5">
-				<h2 class="text-center">LOCATION</h2>
-				<div class="embed-responsive embed-responsive-4by3" id="map">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3436.9765252689817!2d-89.6300979848736!3d30.521702881711185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889dc0ab876c8acb%3A0xf8f83225f4a09b1c!2s4+Oak+Ln%2C+Picayune%2C+MS+39466!5e0!3m2!1sen!2sus!4v1508430457580" width="600" height="450"frameborder="0" style="border:0" allowfullscreen class="embed-responsive-item"></iframe>
-				</div>
-			</div>
-		</section>
-	</div>
+		<div class="container-fluid jumbotron text-left">
+	<h1>What i'm doing now</h1>
+	<h2>Garden</h2>
+	<p>It's winter time, so i'm mostly prepping for next bloom season.
+	<h2>Website</h2>
+	<p>Working on getting my photo gallery up and running.</p>
 </div>
-
-<!-- send email button script -->
-<script>
-	window.onload = init;
-
-	function init() {
-		var button = document.getElementById("submitBtn");
-		button.onclick = sendMail;
-		console.log("buttonLoaded");
-	}
-	function sendMail()
-	{
-		var name = document.getElementById("nameInput").value;
-		var phoneNumber = document.getElementById("phoneNumberInput").value;
-		var email = document.getElementById("emailInput").value;
-		var message = document.getElementById("messageInput").value;
-		document.location.href = "mailto:kaymcline@gmail.com?subject=" + encodeURIComponent("CPFabrication.com Message") + "&body=" + "Name: " + name + "%0D%0A" + "Phone Number: " + phoneNumber + "%0D%0A" + "Email: " + email + "%0D%0A" + "Message: " + message ;
-	}
-</script>
 	</div>
 </div>
 

@@ -1,5 +1,6 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
+<!-- links, includes, etc -->
 <head>
 	<!-- Google Analytics Code-->
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -15,7 +16,7 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title> Rolling Oaks Daylilies - Flower List</title>
+	<title> Photo Gallery | RollingOaksDaylilies.com</title>
 	<!-- Add Favicon -->
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -29,10 +30,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-	<title>Daylily List</title>
+</head>
+<body>
+	<!-- css styling -->
 	<style>
-
 		body{
 			display: block;
 			margin:auto;
@@ -52,105 +53,184 @@
 			max-height: 50px;
 			padding: 5px;
 		}
-		.jumbotron {
-			max-width: 900px;
+		#logo img{
+			display: block;
+			margin:auto;
+		}
+		input, textarea {
+			min-width: 200px;
+			max-width: 300px;
+			margin-bottom: 10px;
 			display:block;
 			margin-left:auto;
 			margin-right: auto;
 		}
-		text-align: left;
+		.contactForm {
+			max-width: 400px;
+			display:block;
+			margin-left:auto;
+			margin-right: auto;
+		}
+		.map {
+			display: block;
+			margin:auto;
+			padding-bottom: 20px;
+			max-width: 600px;
+		}
+		#submitBtn {
+			max-width: 250px;
+			display:block;
+			margin-left:auto;
+			margin-right: auto;
+		}
+		.subtleLink {
+			color: #8A8A8D;
+		}
+		#wrap {
+			text-align: center;
+		}
+		#content {
+			text-align: left;
 
-	</style>
-</head>
-<body>
-	<!-- navigation bar -->
-	<section id="navbarSection">
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>                      
-					</button>
-					<a href="index.html">
-						<img id="navLogo" src="rollingOaksDayliliesLogo.png" class="img-responsive" alt="logo">
-					</a>
-				</div>
-				<div class="collapse navbar-collapse" id="myNavbar">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="list2.html">LIST</a></li>
-						<li><a href="gallery.html">GALLERY</a></li>
-						<li><a href="index.html">CONTACT</a></li>
-						<li><a href="index.html">LOCATION</a></li>
-					</ul>
-				</div>
+		}
+		/*css for photo galary*/
+
+		#gallery{
+			display: block;
+			margin:auto;
+			max-width: 900px;
+		}
+		.galleryImage {
+			width: auto;
+    		height: 300px;
+		}
+
+	}
+
+	/*end photo gallary CSS*/
+}
+</style>
+<!-- navigation bar -->
+<section id="navbarSection">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+                      
+				</button>
+				<a href="/">
+					<img id="navLogo" src="rollingOaksDayliliesLogo.png" class="img-responsive" alt="logo">
+				</a>
 			</div>
-		</nav>
-	</section>
-
-	<!-- Photo Galary -->
-	<div class="container" id="gallery">
-		<div class="row">
-			<div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<h1 class="text-center">Flower Gallery</h1>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/now">NOW</a></li>
+					<li><a href="/list">LIST</a></li>
+					<li><a href="/gallery">GALLERY</a></li>
+				</ul>
 			</div>
-			<br/>
-			<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-				<img src="./imgFlowers/1.JPG" class="img-responsive">
-				<h3>Flower 1</h3>
-				<p>This is a description</p>
-			</div>
-
-			<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-				<img src="./imgFlowers/3.JPG" class="img-responsive">
-				<h3>Flower 2</h3>
-				<p>This is a description</p>
-			</div>
-
-			<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-				<img src="./imgFlowers/4.JPG" class="img-responsive">
-				<h3>Flower 3</h3>
-				<p>This is a description</p>
-			</div>
-
-			<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-				<img src="./imgFlowers/5.JPG" class="img-responsive">
-				<h3>Flower 4</h3>
-				<p>This is a description</p>
-			</div>
-
-			<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-				<img src="./imgFlowers/1.JPG" class="img-responsive">
-				<h3>Flower 5</h3>
-				<p>This is a description</p>
-			</div>
-
-			<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-				<img src="./imgFlowers/3.JPG" class="img-responsive">
-				<h3>Flower 6</h3>
-				<p>This is a description</p>
-			</div>
-
-			<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-				<img src="./imgFlowers/4.JPG" class="img-responsive">
-				<h3>Flower 7</h3>
-				<p>This is a description</p>
-			</div>
-
-			<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-				<img src="./imgFlowers/5.JPG" class="img-responsive">
-				<h3>Flower 8</h3>
-				<p>This is sub text</p>
-			</div>
-
-
 		</div>
-	</div>
+	</nav>
 </section>
 
-<!-- End Photo gallary -->
+<div class="container-fluid">
+	<div class ="text-center">
+		<!-- Photo Galary -->
+<div class="container jumbotron" id="gallery">
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<h1 class="text-center" style="padding-bottom: 30px">Gallery</h1>
+		</div>
+		
+			
+			
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<img class="galleryImage img-fluid img-thumbnail rounded" src="/imgFlowers/Buddy's Gloria.jpg" alt="image" />
+				<h3>Buddy's Gloria</h3>
+			</div>
+			
+			
+			
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<img class="galleryImage img-fluid img-thumbnail rounded" src="/imgFlowers/Carved Complexity.jpg" alt="image" />
+				<h3>Carved Complexity</h3>
+			</div>
+			
+			
+			
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<img class="galleryImage img-fluid img-thumbnail rounded" src="/imgFlowers/Cherry Swizler.JPG" alt="image" />
+				<h3>Cherry Swizler</h3>
+			</div>
+			
+			
+			
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<img class="galleryImage img-fluid img-thumbnail rounded" src="/imgFlowers/Coffee Frenzy.jpg" alt="image" />
+				<h3>Coffee Frenzy</h3>
+			</div>
+			
+			
+			
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<img class="galleryImage img-fluid img-thumbnail rounded" src="/imgFlowers/Spacecoast Behavior Pattern.jpg" alt="image" />
+				<h3>Spacecoast Behavior Pattern</h3>
+			</div>
+			
+			
+			
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<img class="galleryImage img-fluid img-thumbnail rounded" src="/imgFlowers/Spacecoast Casino Red.jpg" alt="image" />
+				<h3>Spacecoast Casino Red</h3>
+			</div>
+			
+			
+			
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<img class="galleryImage img-fluid img-thumbnail rounded" src="/imgFlowers/Spacecoast Dark Obsession.jpg" alt="image" />
+				<h3>Spacecoast Dark Obsession</h3>
+			</div>
+			
+			
+			
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<img class="galleryImage img-fluid img-thumbnail rounded" src="/imgFlowers/Spacecoast Francis Busby.jpg" alt="image" />
+				<h3>Spacecoast Francis Busby</h3>
+			</div>
+			
+			
+			
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<img class="galleryImage img-fluid img-thumbnail rounded" src="/imgFlowers/Spacecoast Modern Symmetry.jpg" alt="image" />
+				<h3>Spacecoast Modern Symmetry</h3>
+			</div>
+			
+			
+			
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<img class="galleryImage img-fluid img-thumbnail rounded" src="/imgFlowers/Spacecoast Multilevel Deal.jpg" alt="image" />
+				<h3>Spacecoast Multilevel Deal</h3>
+			</div>
+			
+			
+			
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<img class="galleryImage img-fluid img-thumbnail rounded" src="/imgFlowers/Spacecoast Sea Shells.jpg" alt="image" />
+				<h3>Spacecoast Sea Shells</h3>
+			</div>
+			
+			
+			
+			
+	</div>
+</div>
+	</div>
+</div>
+
 </body>
 </html>
 
