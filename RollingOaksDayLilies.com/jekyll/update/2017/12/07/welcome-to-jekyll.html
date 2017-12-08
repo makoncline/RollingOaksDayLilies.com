@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- links, includes, etc -->
+<head>
+	<!-- Google Analytics Code-->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108374166-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-108374166-1');
+	</script>
+
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Welcome to Jekyll! | RollingOaksDaylilies.com</title>
+	<!-- Add Favicon -->
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<!-- Add custom font -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:300,700" rel="stylesheet">
+	<!-- bootstrap -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+	<!-- css styling -->
+	<style>
+		body{
+			display: block;
+			margin:auto;
+			max-width: 900px;
+		}
+		h1,h2, h3, nav, form, .btn{
+			font-family: 'Open Sans', sans-serif;
+		}
+		p {
+			font-family: 'Open Sans', sans-serif;
+			color: #8A8A8D;
+		}
+		li strong {	
+			color: #0071CE;
+		}
+		#navLogo {
+			max-height: 50px;
+			padding: 5px;
+		}
+		#logo img{
+			display: block;
+			margin:auto;
+		}
+		input, textarea {
+			min-width: 200px;
+			max-width: 300px;
+			margin-bottom: 10px;
+			display:block;
+			margin-left:auto;
+			margin-right: auto;
+		}
+		.contactForm {
+			max-width: 400px;
+			display:block;
+			margin-left:auto;
+			margin-right: auto;
+		}
+		.map {
+			display: block;
+			margin:auto;
+			padding-bottom: 20px;
+			max-width: 600px;
+		}
+		#submitBtn {
+			max-width: 250px;
+			display:block;
+			margin-left:auto;
+			margin-right: auto;
+		}
+		.subtleLink {
+			color: #8A8A8D;
+		}
+		#wrap {
+			text-align: center;
+		}
+		#content {
+			text-align: left;
+
+		}
+		/*css for photo galary*/
+
+		#gallery{
+			display: block;
+			margin:auto;
+			max-width: 900px;
+		}
+		.galleryImage {
+			width: auto;
+    		height: 300px;
+		}
+
+	}
+
+	/*end photo gallary CSS*/
+}
+</style>
+<!-- navigation bar -->
+<section id="navbarSection">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+                      
+				</button>
+				<a href="/">
+					<img id="navLogo" src="rollingOaksDayliliesLogo.png" class="img-responsive" alt="logo">
+				</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/now">NOW</a></li>
+					<li><a href="/list">LIST</a></li>
+					<li><a href="/gallery">GALLERY</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</section>
+
+<div class="container-fluid">
+	<div class ="text-center">
+		<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Welcome to Jekyll!</h1>
+    <p class="post-meta">
+      <time datetime="2017-12-07T17:34:51-06:00" itemprop="datePublished">
+        
+        Dec 7, 2017
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+
+<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+
+
+  </div>
+
+  
+</article>
+
+	</div>
+</div>
+
+</body>
+</html>
+
