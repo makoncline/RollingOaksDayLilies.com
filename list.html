@@ -23,118 +23,113 @@
 	<!-- Add custom font -->
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:300,700" rel="stylesheet">
 	<!-- bootstrap -->
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</script>
+</script>
 </head>
 <body>
-	<!-- css styling -->
-	<style>
-		body{
-			display: block;
-			margin:auto;
-			max-width: 900px;
-		}
-		h1,h2, h3, nav, form, .btn{
-			font-family: 'Open Sans', sans-serif;
-		}
-		p {
-			font-family: 'Open Sans', sans-serif;
-			color: #8A8A8D;
-		}
-		li strong {	
-			color: #0071CE;
-		}
-		#navLogo {
-			max-height: 50px;
-			padding: 5px;
-		}
-		#logo img{
-			display: block;
-			margin:auto;
-		}
-		input, textarea {
-			min-width: 200px;
-			max-width: 300px;
-			margin-bottom: 10px;
-			display:block;
-			margin-left:auto;
-			margin-right: auto;
-		}
-		.contactForm {
-			max-width: 400px;
-			display:block;
-			margin-left:auto;
-			margin-right: auto;
-		}
-		.map {
-			display: block;
-			margin:auto;
-			padding-bottom: 20px;
-			max-width: 600px;
-		}
-		#submitBtn {
-			max-width: 250px;
-			display:block;
-			margin-left:auto;
-			margin-right: auto;
-		}
-		.subtleLink {
-			color: #8A8A8D;
-		}
-		#wrap {
-			text-align: center;
-		}
-		#content {
-			text-align: left;
-
-		}
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+<!-- css styling -->
+<style>
+	body{
+		display: block;
+		margin:auto;
+		max-width: 900px;
+	}
+	h1,h2, h3, nav, form, .btn{
+		font-family: 'Open Sans', sans-serif;
+	}
+	p {
+		font-family: 'Open Sans', sans-serif;
+		color: #8A8A8D;
+	}
+	li strong {	
+		color: #0071CE;
+	}
+	#navLogo {
+		max-height: 50px;
+		padding: 5px;
+	}
+	#logo img{
+		display: block;
+		margin:auto;
+	}
+	input, textarea {
+		min-width: 200px;
+		max-width: 300px;
+		margin-bottom: 10px;
+		display:block;
+		margin-left:auto;
+		margin-right: auto;
+	}
+	.contactForm {
+		max-width: 400px;
+		display:block;
+		margin-left:auto;
+		margin-right: auto;
+	}
+	.map {
+		display: block;
+		margin:auto;
+		padding-bottom: 20px;
+		max-width: 600px;
+	}
+	#submitBtn {
+		max-width: 250px;
+		display:block;
+		margin-left:auto;
+		margin-right: auto;
+	}
+	.subtleLink {
+		color: #8A8A8D;
+	}
+	#wrap {
+		text-align: center;
+	}
+	#content {
+		text-align: left;
 
 	}
 
-	/*end photo gallary CSS*/
+}
+
+/*end photo gallary CSS*/
 }
 </style>
-<!-- navigation bar -->
-<section id="navbarSection">
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span> 
-                      
-				</button>
-				<a href="/">
-					<img id="navLogo" src="rollingOaksDayliliesLogo.png" class="img-responsive" alt="logo">
-				</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/">HOME</a></li>
-					<li><a href="/now">NOW</a></li>
-					<li><a href="/list">LIST</a></li>
-					<li><a href="/gallery">GALLERY</a></li>
-				</ul>
+<div class="container-fluid">
+	<!-- navigation bar -->
+	<nav class="navbar navbar-expand-md navbar-light bg-light">
+		<a  class="navbar-brand" href="/">
+			<img id="navLogo" src="rollingOaksDayliliesLogo.png" class="img-responsive" alt="logo">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse justify-content-end" id="myNavbar">
+			<div class="navbar-nav">
+				<a class="nav-item nav-link" href="/">HOME</a></li>
+				<a class="nav-item nav-link" href="/now">NOW</a></li>
+				<a class="nav-item nav-link" href="/list">LIST</a></li>
+				<a class="nav-item nav-link" href="/gallery">GALLERY</a></li>
 			</div>
 		</div>
 	</nav>
-</section>
 
-<div class="container-fluid">
+	<!-- content -->
 	<div class ="text-center">
-		<div class="jumbotron">
+		<div class="container-fluid">
 	<h1 class="text-center" style="padding-bottom: 30px">List</h1>
-	<div>
-		<table class="table table-hover table-responsive table-striped table-bordered" id="list">
-			<thead>
+	<div class="table-responsive">
+		<table class="table table-striped table-bordered" id="list">
+			<thead >
 				<tr>
 					<th class='text'">Cultivar</th>
 					<th class='text'>Hybridizer</th>
