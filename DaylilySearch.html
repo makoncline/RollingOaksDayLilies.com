@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+	
+	<title> Daylilly Search | RollingOaksDaylilies.com</title>
+	
+
+	<meta name="description" content="Rolling Oaks Daylilies - The Garden of Kay Cline">
+
+    <!-- Custom font -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:300,700" rel="stylesheet">
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="/assets/css/styles.css">
+
+</head>
+	<!-- Google Analytics Code-->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108374166-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-108374166-1');
+	</script>
+
+<body>
+
+	<div class="container-fluid text-center">
+		<!-- navigation bar -->
+<style type="text/css">
+	nav {
+		background: #1e7655;
+	}
+	.nav-item {
+		height: 100%;
+		color: white;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	.nav-item:hover {
+		background: #279f6d;
+	}
+	#navLogo {
+		max-height: 50px;
+		padding: 5px;
+	}
+	#logo img{
+		display: block;
+		margin:auto;
+	}
+	input, textarea {
+		min-width: 200px;
+		max-width: 300px;
+		margin-bottom: 10px;
+		display:block;
+		margin-left:auto;
+		margin-right: auto;
+	}
+	.contactForm {
+		max-width: 400px;
+		display:block;
+		margin-left:auto;
+		margin-right: auto;
+	}
+	.map {
+		display: block;
+		margin:auto;
+		padding-bottom: 20px;
+		max-width: 600px;
+	}
+	#submitBtn {
+		max-width: 250px;
+		display:block;
+		margin-left:auto;
+		margin-right: auto;
+	}
+</style>
+
+<nav class="navbar navbar-expand-md">
+	<a  class="navbar-brand" href="/">
+		<img id="navLogo" src="/assets/images/rollingOaksDayliliesLogo.png" class="img-responsive" alt="logo">
+	</a>
+	
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+		<div class="navbar-nav">
+			<a class="nav-item nav-link" href="/">HOME</a></li>
+			<!-- <a class="nav-item nav-link" href="/now">NOW</a></li> -->
+			<a class="nav-item nav-link" href="/DaylilyCatalog/A">CATALOG</a></li>
+<!-- 			<a class="nav-item nav-link" href="/DaylilyGallery">GALLERY</a></li> -->
+			<a class="nav-item nav-link" href="/DaylilySearch">SEARCH</a></li>
+
+		</div>
+	</div>
+</nav>
+		<style type="text/css">
+	#searchBox {
+		display: block;
+		margin:auto;
+		width: 300px;
+		padding: 5px;
+	}
+	form{
+		display: block;
+		margin:auto;
+		width: 100%
+	}
+	#results-container {
+		width: 100%;
+		background-color: white;
+		border-radius: 10px;
+		display: grid;
+		grid-template-columns: 100%;
+		grid-row-gap: 3px;
+		justify-content: center;
+		padding: 3px;
+	}
+	.result{
+		width: 100%;
+		height: 30px;
+		background-color: rgba(39, 159, 109, .8);
+		border-radius: 5px;
+		color: white;
+	}
+	.result:hover{
+		background-color: rgba(39, 159, 109, .5);
+		color: black;
+	}
+</style>
+<div id="searchBox">
+	<h1>Daylily Search</h1>
+	<form>
+	<!-- HTML elements for search -->
+		<input class = "form-control" type="text" id="search-input" placeholder="Search My Daylilies...">
+	</form>
+	<ul id="results-container"></ul>
+</div>
+
+<!-- script pointing to jekyll-search.js -->
+<script src="/simple-jekyll-search.min.js"></script>
+
+<script type="text/javascript">
+var sjs = SimpleJekyllSearch({
+  searchInput: document.getElementById('search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json',
+  limit: 25,
+  searchResultTemplate: "<a href='/{url}'><div class='result'>{cultivar}</div></a>"
+});
+</script>
+
+	</div>
+
+
+ <!-- Bootstrap Javascript -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+</body>
+</html>
+
