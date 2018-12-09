@@ -6,9 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
@@ -41,129 +38,110 @@
 	<div class="container-fluid text-center">
 		<!-- navigation bar -->
 <style type="text/css">
-	nav {
-		background: #1e7655;
+	.topNav {
+	  background-color: #1e7655;
+	  overflow: hidden;
+	  margin-bottom: 10px;
 	}
-	.nav-item {
-		height: 100%;
-		color: white;
-		padding-left: 5px;
-		padding-right: 5px;
+	.topNav a {
+	  display: inline-block;
+	  color: white;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	  font-size: 17px;
 	}
-	.nav-item:hover {
-		background: #279f6d;
+	.topNav a:hover {
+	  background-color: #ddd;
+	  color: black;
 	}
-	#navLogo {
-		max-height: 50px;
-		padding: 5px;
+	.topNav .navLeft{
+		float: left;
 	}
-	#logo img{
+	.topNav .navRight{
+		float: right;
+	}
+	.topNav .icon {
+	  display: none;
+	} 
+	.navLogo{
+		position: absolute;
 		display: block;
-		margin:auto;
+		margin: auto;
+		height: 50px;
+		width: 50px;
+		padding-left: 10px;
 	}
-	input, textarea {
-		min-width: 200px;
-		max-width: 300px;
-		margin-bottom: 10px;
-		display:block;
-		margin-left:auto;
-		margin-right: auto;
+	@media screen and (max-width: 600px) {
+	  .topNav a {display: none;}
+	  .topNav a.icon {
+	    float: right;
+	    display: block;
+	  }
 	}
-	.contactForm {
-		max-width: 400px;
-		display:block;
-		margin-left:auto;
-		margin-right: auto;
+	@media screen and (max-width: 600px) {
+	  .topNav.responsive {position: relative;}
+	  .topNav.responsive a.icon {
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	  }
+	  .topNav.responsive a {
+	    float: none;
+	    display: block;
+	    text-align: center;
+	  }
+	  .topNav .navRight{
+		float: none;
 	}
-	.map {
-		display: block;
-		margin:auto;
-		padding-bottom: 20px;
-		max-width: 600px;
-	}
-	#submitBtn {
-		max-width: 250px;
-		display:block;
-		margin-left:auto;
-		margin-right: auto;
 	}
 </style>
 
-<nav class="navbar navbar-expand-md">
-	<a  class="navbar-brand" href="/">
-		<img id="navLogo" src="/assets/images/rollingOaksDayliliesLogo.png" class="img-responsive" alt="logo">
-	</a>
+<!-- load small menu button -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-
-	<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-		<div class="navbar-nav">
-			<a class="nav-item nav-link" href="/">HOME</a></li>
+<div class="topNav" id="myTopNav">
+	<img class="navLogo navLeft" src="/assets/images/rollingOaksDayliliesLogo.png" alt="logo">
+	<div class="navRight">
+		<a  href="/">HOME</a>
 			<!-- <a class="nav-item nav-link" href="/now">NOW</a></li> -->
-			<a class="nav-item nav-link" href="/DaylilyCatalog/A">CATALOG</a></li>
-<!-- 			<a class="nav-item nav-link" href="/DaylilyGallery">GALLERY</a></li> -->
-			<a class="nav-item nav-link" href="/DaylilySearch">SEARCH</a></li>
+		<a href="/DaylilyCatalog/A">CATALOG</a>
+			<!--<a class="nav-item nav-link" href="/DaylilyGallery">GALLERY</a> -->
+		<a href="/DaylilySearch">SEARCH</a>
+		<a class="icon" href="javascript:void(0);" onclick="shirnkNav()">
+	    	<i class="fa fa-bars"></i>
+	  	</a>
+  	</div>
+</div>
 
-		</div>
-	</div>
-</nav>
+<script>
+	function shirnkNav() {
+	  var x = document.getElementById("myTopNav");
+	  if (x.className === "topNav") {
+	    x.className += " responsive";
+	  } else {
+	    x.className = "topNav";
+	  }
+	} 
+</script>
+
 		<style>
 
 	body{
 		background-color: rgba(39, 159, 109, .2);
+		text-align: center;
 	}
-	.cardbox {
-		width: 100%;
+	#alphabetLinks{
 		display: grid;
-		grid-template-columns: 25% 25% 25% 25%;
-		grid-gap: 10px;
-		padding: 20px;
-
-	}
-	.card {
-    /* Add shadows to create the "card" effect */
-	width: 100%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-	background-color: rgba(255, 255, 255, .6);
-	}
-	.card h4{
-		color: black;
-		font-size: 15px;
-		height: 30px;
-	}
-	.card p{
-		color: black;
-		font-size: 12px;
-	}
-
-	.card:hover {
-	    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
-	    transform: scale(1.05);
-	}
-
-	.container {
-	    padding: 2px 16px;
+		grid-template-columns: repeat(auto-fit, minmax(10px,1fr));
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		margin-bottom: 10px;
 	}
 	#pageFlowTop, #pageFlowBottom {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-	}
-	.paginate{
-		padding: 0px 8px 0px 8px;
-	}
-	.letterBtn{
-		display: inline-block;
-		width: 18px;
-		height: 18px;
-		font-size: 12px;
 	}
 	.paginate, .letterBtn {
 		background-color: rgba(39, 159, 109, 1);
@@ -174,2165 +152,2217 @@
 	.paginate:hover, .letterBtn:hover {
 		background-color: rgba(39, 159, 109, .9);
 	}
-	.buybtn{
-		background-color: rgba(203, 64, 17, 1);
-		box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-		border-radius: 5px;
-		width: 100%
+	.paginate{
+		display: block;
+		width: 100%;
+		height: auto;
+		padding: 0px 8px 0px 8px;
 	}
-	.buybtn p{
-		color: white;
+	.letterBtn{
+		display: block;
+		width: 100%;
+		height: auto;
+		padding: 2px;
+		font-size: 12px;
+	}
+	.cardbox {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+		grid-row-gap: 10px;
+		grid-column-gap: 10px;
+		padding: 20px;
+
+	}
+	.card {
+	    /* Add shadows to create the "card" effect */
+		width: 100%;
+	    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	    transition: 0.3s;
+	    border-radius: 10px;
+	    display: grid;
+	    grid-template-rows: 200px 75px auto;
+		background-color: rgba(255, 255, 255, .6);
+	}
+	.card:hover {
+	    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+	    transform: scale(1.025);
+	}
+	.flowerImg img{
+		display: block;
+		margin:auto;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		height: 200px;
+		width: 100%;
+		object-fit: cover;
+		background-color: black;
+	}
+	.daylilyName{
+		color: black;
+		align-self: center;
+		margin-top: -20px;
+	}
+	.daylilyName h3{
+		color: black;
+	}
+	.buybtn{
+		display: block;
+		margin:auto;
+		width: 100%;
+		height: auto;
+		background-color: rgba(203, 64, 17, 1);
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		color:white;
+		align-self: center;
+		padding: 6px 0px 6px 0px;
+	}
+	.buybtn a{
+		color:white;
+	}
+	.displayLabel{
+		display: block;
+		margin:auto;
+		width: 100%;
+		height: auto;
+		background-color: rgba(255, 255, 255, 0);
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		color:black;
+		align-self: center;
+		padding: 6px 0px 6px 0px;
 	}
 	.buybtn:hover{
 		background-color: rgba(203, 64, 17, .8);
 	}
-	img {
-		border-radius: 10px;
-		height: 200px;
-		width: 100%;
-		object-fit: cover;
-		padding: 4px;
-		
-	}
-	@media (max-width: 900px) { 
-		.cardbox {
-			grid-template-columns: 33% 33% 33%;
-		}
-	}
-	@media (max-width: 700px) { 
-		.cardbox {
-			grid-template-columns: 50% 50%;
-		}
-	}
-	@media (max-width: 500px) { 
-		.cardbox {
-			grid-template-columns: 100%;
-		}
+	#pageFlowBottom{
+		margin-bottom: 30px;
 	}
 </style>
 
 
-<div class="container-fluid">
-	<h1 class="text-center" style="padding-bottom: 25px;">Daylily Catalog</h1>
-	<p id="alphabetLinks"></p>
+	<h1 style="padding-bottom: 25px;">Daylily Catalog</h1>
+	<div id="alphabetLinks"></div>
 	<p id="pageLetter" style="visibility: hidden; height:0px;">N<p>
 	<div id="pageFlowTop">
 		<p id="prevLinkTop"></p>
 		<p id="nextLinkTop"></p>
 	</div>
-	<p class="text-center">Daylilies starting with the letter "N"</p>
+	<h2>Daylilies starting with the letter "N"</h2>
 
 	<div class="cardbox">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			 <div class="card">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -2999,19 +3029,24 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 				
-				<div class="container info">
-					<a href="/Daylilies/nanners.html" class="daylilyName"><h4>Nanners</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/nanners.html"><h3>Nanners</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -3673,23 +3708,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/national-memento.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/National%20Memento.jpg alt="Daylily Photo - National Memento" />
-				</a>
+					<a href="/Daylilies/national-memento.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/National%20Memento.jpg alt="Daylily Photo - National Memento" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/national-memento.html" class="daylilyName"><h4>National Memento</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/national-memento.html"><h3>National Memento</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -4351,23 +4391,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/natures-crown.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/nature's_crown.jpg alt="Daylily Photo - Nature's Crown" />
-				</a>
+					<a href="/Daylilies/natures-crown.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/nature's_crown.jpg alt="Daylily Photo - Nature's Crown" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/natures-crown.html" class="daylilyName"><h4>Nature's Crown</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/natures-crown.html"><h3>Nature's Crown</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -5029,23 +5074,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/nell-crandall.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Nell_Crandall.jpg alt="Daylily Photo - Nell Crandall" />
-				</a>
+					<a href="/Daylilies/nell-crandall.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Nell_Crandall.jpg alt="Daylily Photo - Nell Crandall" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/nell-crandall.html" class="daylilyName"><h4>Nell Crandall</h4></a>
-					
-						<a href="/Daylilies/nell-crandall.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/nell-crandall.html"><h3>Nell Crandall</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/nell-crandall.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -5707,23 +5757,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/nell-mccreery.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Nell%20McCreery.jpg alt="Daylily Photo - Nell Mccreery" />
-				</a>
+					<a href="/Daylilies/nell-mccreery.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Nell%20McCreery.jpg alt="Daylily Photo - Nell Mccreery" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/nell-mccreery.html" class="daylilyName"><h4>Nell Mccreery</h4></a>
-					
-						<a href="/Daylilies/nell-mccreery.html"><div class="buybtn"><p>$10.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/nell-mccreery.html"><h3>Nell Mccreery</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/nell-mccreery.html">$10.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -6385,23 +6440,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/neon-rainbow.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Neon_Rainbow.jpg alt="Daylily Photo - Neon Rainbow" />
-				</a>
+					<a href="/Daylilies/neon-rainbow.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Neon_Rainbow.jpg alt="Daylily Photo - Neon Rainbow" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/neon-rainbow.html" class="daylilyName"><h4>Neon Rainbow</h4></a>
-					
-						<a href="/Daylilies/neon-rainbow.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/neon-rainbow.html"><h3>Neon Rainbow</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/neon-rainbow.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -7063,23 +7123,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/new-york-follies.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/New_York_Follies.jpg alt="Daylily Photo - New York Follies" />
-				</a>
+					<a href="/Daylilies/new-york-follies.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/New_York_Follies.jpg alt="Daylily Photo - New York Follies" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/new-york-follies.html" class="daylilyName"><h4>New York Follies</h4></a>
-					
-						<a href="/Daylilies/new-york-follies.html"><div class="buybtn"><p>$10.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/new-york-follies.html"><h3>New York Follies</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/new-york-follies.html">$10.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -7741,23 +7806,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/nicoles-american-beauty.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Nicole's_American_Beauty.jpg alt="Daylily Photo - Nicole's American Beauty" />
-				</a>
+					<a href="/Daylilies/nicoles-american-beauty.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Nicole's_American_Beauty.jpg alt="Daylily Photo - Nicole's American Beauty" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/nicoles-american-beauty.html" class="daylilyName"><h4>Nicole's American Beauty</h4></a>
-					
-						<a href="/Daylilies/nicoles-american-beauty.html"><div class="buybtn"><p>$12.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/nicoles-american-beauty.html"><h3>Nicole's American Beauty</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/nicoles-american-beauty.html">$12.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -8419,23 +8489,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/nicoles-heat-seeker.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/nicoles_heat_seeker.jpg alt="Daylily Photo - Nicole's Heat seeker" />
-				</a>
+					<a href="/Daylilies/nicoles-heat-seeker.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/nicoles_heat_seeker.jpg alt="Daylily Photo - Nicole's Heat seeker" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/nicoles-heat-seeker.html" class="daylilyName"><h4>Nicole's Heat seeker</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/nicoles-heat-seeker.html"><h3>Nicole's Heat seeker</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -9097,23 +9172,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/night-and-day.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/NIGHT%20AND%20DAY.jpg alt="Daylily Photo - Night and Day" />
-				</a>
+					<a href="/Daylilies/night-and-day.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/NIGHT%20AND%20DAY.jpg alt="Daylily Photo - Night and Day" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/night-and-day.html" class="daylilyName"><h4>Night and Day</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/night-and-day.html"><h3>Night and Day</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -9775,23 +9855,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/night-embers.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Night_Embers.jpg alt="Daylily Photo - Night Embers" />
-				</a>
+					<a href="/Daylilies/night-embers.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Night_Embers.jpg alt="Daylily Photo - Night Embers" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/night-embers.html" class="daylilyName"><h4>Night Embers</h4></a>
-					
-						<a href="/Daylilies/night-embers.html"><div class="buybtn"><p>$10.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/night-embers.html"><h3>Night Embers</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/night-embers.html">$10.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -10453,23 +10538,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/night-wings.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Night%20Wings.jpg alt="Daylily Photo - Night Wings" />
-				</a>
+					<a href="/Daylilies/night-wings.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Night%20Wings.jpg alt="Daylily Photo - Night Wings" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/night-wings.html" class="daylilyName"><h4>Night Wings</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/night-wings.html"><h3>Night Wings</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -11131,19 +11221,24 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 				
-				<div class="container info">
-					<a href="/Daylilies/nile-jewel.html" class="daylilyName"><h4>Nile Jewel</h4></a>
-					
-						<a href="/Daylilies/nile-jewel.html"><div class="buybtn"><p>$10.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/nile-jewel.html"><h3>Nile Jewel</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/nile-jewel.html">$10.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -11805,23 +11900,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/noonday-dreams.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Noonday%20Dreams%20from%20Monbeck.jpg alt="Daylily Photo - Noonday Dreams" />
-				</a>
+					<a href="/Daylilies/noonday-dreams.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Noonday%20Dreams%20from%20Monbeck.jpg alt="Daylily Photo - Noonday Dreams" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/noonday-dreams.html" class="daylilyName"><h4>Noonday Dreams</h4></a>
-					
-						<a href="/Daylilies/noonday-dreams.html"><div class="buybtn"><p>$12.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/noonday-dreams.html"><h3>Noonday Dreams</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/noonday-dreams.html">$12.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -12483,23 +12583,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/nordic-night.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Nordic_Night.jpg alt="Daylily Photo - Nordic Night" />
-				</a>
+					<a href="/Daylilies/nordic-night.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Nordic_Night.jpg alt="Daylily Photo - Nordic Night" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/nordic-night.html" class="daylilyName"><h4>Nordic Night</h4></a>
-					
-						<a href="/Daylilies/nordic-night.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/nordic-night.html"><h3>Nordic Night</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/nordic-night.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -13161,23 +13266,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/northern-fancy.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/northern_fancy.jpg alt="Daylily Photo - Northern Fancy" />
-				</a>
+					<a href="/Daylilies/northern-fancy.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/northern_fancy.jpg alt="Daylily Photo - Northern Fancy" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/northern-fancy.html" class="daylilyName"><h4>Northern Fancy</h4></a>
-					
-						<a href="/Daylilies/northern-fancy.html"><div class="buybtn"><p>$10.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/northern-fancy.html"><h3>Northern Fancy</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/northern-fancy.html">$10.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -13839,23 +13949,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/notify-ground-crew.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Notify_Ground_Crew.jpg alt="Daylily Photo - Notify ground Crew" />
-				</a>
+					<a href="/Daylilies/notify-ground-crew.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Notify_Ground_Crew.jpg alt="Daylily Photo - Notify ground Crew" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/notify-ground-crew.html" class="daylilyName"><h4>Notify ground Crew</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/notify-ground-crew.html"><h3>Notify ground Crew</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -14517,23 +14632,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/now-and-zen.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Now_and_Zen.jpg alt="Daylily Photo - Now and Zen" />
-				</a>
+					<a href="/Daylilies/now-and-zen.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Now_and_Zen.jpg alt="Daylily Photo - Now and Zen" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/now-and-zen.html" class="daylilyName"><h4>Now and Zen</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/now-and-zen.html"><h3>Now and Zen</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -15195,23 +15315,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/now-thats-orange.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/NowThatsOrange.jpg alt="Daylily Photo - Now That's Orange" />
-				</a>
+					<a href="/Daylilies/now-thats-orange.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/NowThatsOrange.jpg alt="Daylily Photo - Now That's Orange" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/now-thats-orange.html" class="daylilyName"><h4>Now That's Orange</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/now-thats-orange.html"><h3>Now That's Orange</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -15873,1521 +15998,1526 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/nutmeg-spice.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Nutmeg_Spice.jpg alt="Daylily Photo - Nutmeg Spice" />
-				</a>
+					<a href="/Daylilies/nutmeg-spice.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/N/Nutmeg_Spice.jpg alt="Daylily Photo - Nutmeg Spice" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/nutmeg-spice.html" class="daylilyName"><h4>Nutmeg Spice</h4></a>
-					
-						<a href="/Daylilies/nutmeg-spice.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/nutmeg-spice.html"><h3>Nutmeg Spice</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/nutmeg-spice.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	</div>
+
 	<div id="pageFlowBottom">
 		<p id="prevLinkBottom"></p>
 		<p id="nextLinkBottom"></p>
@@ -17402,12 +17532,12 @@
 			let letter = (i+10).toString(36);
 			let a = '';
 			if ( i < 25 ){
-				a = '<a class="letterBtn" href="/DaylilyCatalog/'+letter+'">'+ letter.toUpperCase() +'</a> / ';
+				a = '<a class="letterBtn" href="/DaylilyCatalog/'+letter+'">'+ letter.toUpperCase() +'</a>';
 			} else {
 				a = '<a class="letterBtn" href="/DaylilyCatalog/'+letter+'">'+ letter.toUpperCase() +'</a>';
-			};
+			}
 			linkString += a;
-		};
+		}
 		alphabetLinks.innerHTML = linkString;
 
 		let pageLetter = document.getElementById("pageLetter").innerHTML;
@@ -17424,27 +17554,23 @@
 		if (pageLetter != "A"){
 			prevLinkTop.innerHTML = '<a class="paginate" href="/DaylilyCatalog/'+prevLetter+'"><< Previous</a>';
 			prevLinkBottom.innerHTML = '<a class="paginate" href="/DaylilyCatalog/'+prevLetter+'"><< Previous</a>';
-		};
+		}
 		if (pageLetter != "Z"){
 			nextLinkTop.innerHTML = '<a class="paginate" href="/DaylilyCatalog/'+nextLetter+'">Next >></a>';
 			nextLinkBottom.innerHTML = '<a class="paginate" href="/DaylilyCatalog/'+nextLetter+'">Next >></a>';
-		};
+		}
 		function nextChar(c) {
 	    	return String.fromCharCode(c.charCodeAt(0) + 1);
-		};
+		}
 		function prevChar(c) {
 	    	return String.fromCharCode(c.charCodeAt(0) - 1);
-		}; 
+		}
 	};
 </script>
 
 	</div>
 
 
- <!-- Bootstrap Javascript -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 </body>
 </html>
 

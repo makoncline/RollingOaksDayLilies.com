@@ -6,9 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
@@ -41,74 +38,93 @@
 	<div class="container-fluid text-center">
 		<!-- navigation bar -->
 <style type="text/css">
-	nav {
-		background: #1e7655;
+	.topNav {
+	  background-color: #1e7655;
+	  overflow: hidden;
+	  margin-bottom: 10px;
 	}
-	.nav-item {
-		height: 100%;
-		color: white;
-		padding-left: 5px;
-		padding-right: 5px;
+	.topNav a {
+	  display: inline-block;
+	  color: white;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	  font-size: 17px;
 	}
-	.nav-item:hover {
-		background: #279f6d;
+	.topNav a:hover {
+	  background-color: #ddd;
+	  color: black;
 	}
-	#navLogo {
-		max-height: 50px;
-		padding: 5px;
+	.topNav .navLeft{
+		float: left;
 	}
-	#logo img{
+	.topNav .navRight{
+		float: right;
+	}
+	.topNav .icon {
+	  display: none;
+	} 
+	.navLogo{
+		position: absolute;
 		display: block;
-		margin:auto;
+		margin: auto;
+		height: 50px;
+		width: 50px;
+		padding-left: 10px;
 	}
-	input, textarea {
-		min-width: 200px;
-		max-width: 300px;
-		margin-bottom: 10px;
-		display:block;
-		margin-left:auto;
-		margin-right: auto;
+	@media screen and (max-width: 600px) {
+	  .topNav a {display: none;}
+	  .topNav a.icon {
+	    float: right;
+	    display: block;
+	  }
 	}
-	.contactForm {
-		max-width: 400px;
-		display:block;
-		margin-left:auto;
-		margin-right: auto;
+	@media screen and (max-width: 600px) {
+	  .topNav.responsive {position: relative;}
+	  .topNav.responsive a.icon {
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	  }
+	  .topNav.responsive a {
+	    float: none;
+	    display: block;
+	    text-align: center;
+	  }
+	  .topNav .navRight{
+		float: none;
 	}
-	.map {
-		display: block;
-		margin:auto;
-		padding-bottom: 20px;
-		max-width: 600px;
-	}
-	#submitBtn {
-		max-width: 250px;
-		display:block;
-		margin-left:auto;
-		margin-right: auto;
 	}
 </style>
 
-<nav class="navbar navbar-expand-md">
-	<a  class="navbar-brand" href="/">
-		<img id="navLogo" src="/assets/images/rollingOaksDayliliesLogo.png" class="img-responsive" alt="logo">
-	</a>
+<!-- load small menu button -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-
-	<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-		<div class="navbar-nav">
-			<a class="nav-item nav-link" href="/">HOME</a></li>
+<div class="topNav" id="myTopNav">
+	<img class="navLogo navLeft" src="/assets/images/rollingOaksDayliliesLogo.png" alt="logo">
+	<div class="navRight">
+		<a  href="/">HOME</a>
 			<!-- <a class="nav-item nav-link" href="/now">NOW</a></li> -->
-			<a class="nav-item nav-link" href="/DaylilyCatalog/A">CATALOG</a></li>
-<!-- 			<a class="nav-item nav-link" href="/DaylilyGallery">GALLERY</a></li> -->
-			<a class="nav-item nav-link" href="/DaylilySearch">SEARCH</a></li>
+		<a href="/DaylilyCatalog/A">CATALOG</a>
+			<!--<a class="nav-item nav-link" href="/DaylilyGallery">GALLERY</a> -->
+		<a href="/DaylilySearch">SEARCH</a>
+		<a class="icon" href="javascript:void(0);" onclick="shirnkNav()">
+	    	<i class="fa fa-bars"></i>
+	  	</a>
+  	</div>
+</div>
 
-		</div>
-	</div>
-</nav>
+<script>
+	function shirnkNav() {
+	  var x = document.getElementById("myTopNav");
+	  if (x.className === "topNav") {
+	    x.className += " responsive";
+	  } else {
+	    x.className = "topNav";
+	  }
+	} 
+</script>
+
 		<style type="text/css" media="screen">
   .container {
     margin: 10px auto;
@@ -133,10 +149,6 @@
 	</div>
 
 
- <!-- Bootstrap Javascript -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 </body>
 </html>
 

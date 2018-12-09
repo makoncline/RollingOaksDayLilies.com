@@ -6,9 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
@@ -41,129 +38,110 @@
 	<div class="container-fluid text-center">
 		<!-- navigation bar -->
 <style type="text/css">
-	nav {
-		background: #1e7655;
+	.topNav {
+	  background-color: #1e7655;
+	  overflow: hidden;
+	  margin-bottom: 10px;
 	}
-	.nav-item {
-		height: 100%;
-		color: white;
-		padding-left: 5px;
-		padding-right: 5px;
+	.topNav a {
+	  display: inline-block;
+	  color: white;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	  font-size: 17px;
 	}
-	.nav-item:hover {
-		background: #279f6d;
+	.topNav a:hover {
+	  background-color: #ddd;
+	  color: black;
 	}
-	#navLogo {
-		max-height: 50px;
-		padding: 5px;
+	.topNav .navLeft{
+		float: left;
 	}
-	#logo img{
+	.topNav .navRight{
+		float: right;
+	}
+	.topNav .icon {
+	  display: none;
+	} 
+	.navLogo{
+		position: absolute;
 		display: block;
-		margin:auto;
+		margin: auto;
+		height: 50px;
+		width: 50px;
+		padding-left: 10px;
 	}
-	input, textarea {
-		min-width: 200px;
-		max-width: 300px;
-		margin-bottom: 10px;
-		display:block;
-		margin-left:auto;
-		margin-right: auto;
+	@media screen and (max-width: 600px) {
+	  .topNav a {display: none;}
+	  .topNav a.icon {
+	    float: right;
+	    display: block;
+	  }
 	}
-	.contactForm {
-		max-width: 400px;
-		display:block;
-		margin-left:auto;
-		margin-right: auto;
+	@media screen and (max-width: 600px) {
+	  .topNav.responsive {position: relative;}
+	  .topNav.responsive a.icon {
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	  }
+	  .topNav.responsive a {
+	    float: none;
+	    display: block;
+	    text-align: center;
+	  }
+	  .topNav .navRight{
+		float: none;
 	}
-	.map {
-		display: block;
-		margin:auto;
-		padding-bottom: 20px;
-		max-width: 600px;
-	}
-	#submitBtn {
-		max-width: 250px;
-		display:block;
-		margin-left:auto;
-		margin-right: auto;
 	}
 </style>
 
-<nav class="navbar navbar-expand-md">
-	<a  class="navbar-brand" href="/">
-		<img id="navLogo" src="/assets/images/rollingOaksDayliliesLogo.png" class="img-responsive" alt="logo">
-	</a>
+<!-- load small menu button -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-
-	<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-		<div class="navbar-nav">
-			<a class="nav-item nav-link" href="/">HOME</a></li>
+<div class="topNav" id="myTopNav">
+	<img class="navLogo navLeft" src="/assets/images/rollingOaksDayliliesLogo.png" alt="logo">
+	<div class="navRight">
+		<a  href="/">HOME</a>
 			<!-- <a class="nav-item nav-link" href="/now">NOW</a></li> -->
-			<a class="nav-item nav-link" href="/DaylilyCatalog/A">CATALOG</a></li>
-<!-- 			<a class="nav-item nav-link" href="/DaylilyGallery">GALLERY</a></li> -->
-			<a class="nav-item nav-link" href="/DaylilySearch">SEARCH</a></li>
+		<a href="/DaylilyCatalog/A">CATALOG</a>
+			<!--<a class="nav-item nav-link" href="/DaylilyGallery">GALLERY</a> -->
+		<a href="/DaylilySearch">SEARCH</a>
+		<a class="icon" href="javascript:void(0);" onclick="shirnkNav()">
+	    	<i class="fa fa-bars"></i>
+	  	</a>
+  	</div>
+</div>
 
-		</div>
-	</div>
-</nav>
+<script>
+	function shirnkNav() {
+	  var x = document.getElementById("myTopNav");
+	  if (x.className === "topNav") {
+	    x.className += " responsive";
+	  } else {
+	    x.className = "topNav";
+	  }
+	} 
+</script>
+
 		<style>
 
 	body{
 		background-color: rgba(39, 159, 109, .2);
+		text-align: center;
 	}
-	.cardbox {
-		width: 100%;
+	#alphabetLinks{
 		display: grid;
-		grid-template-columns: 25% 25% 25% 25%;
-		grid-gap: 10px;
-		padding: 20px;
-
-	}
-	.card {
-    /* Add shadows to create the "card" effect */
-	width: 100%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-	background-color: rgba(255, 255, 255, .6);
-	}
-	.card h4{
-		color: black;
-		font-size: 15px;
-		height: 30px;
-	}
-	.card p{
-		color: black;
-		font-size: 12px;
-	}
-
-	.card:hover {
-	    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
-	    transform: scale(1.05);
-	}
-
-	.container {
-	    padding: 2px 16px;
+		grid-template-columns: repeat(auto-fit, minmax(10px,1fr));
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		margin-bottom: 10px;
 	}
 	#pageFlowTop, #pageFlowBottom {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-	}
-	.paginate{
-		padding: 0px 8px 0px 8px;
-	}
-	.letterBtn{
-		display: inline-block;
-		width: 18px;
-		height: 18px;
-		font-size: 12px;
 	}
 	.paginate, .letterBtn {
 		background-color: rgba(39, 159, 109, 1);
@@ -174,1916 +152,1968 @@
 	.paginate:hover, .letterBtn:hover {
 		background-color: rgba(39, 159, 109, .9);
 	}
-	.buybtn{
-		background-color: rgba(203, 64, 17, 1);
-		box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-		border-radius: 5px;
-		width: 100%
+	.paginate{
+		display: block;
+		width: 100%;
+		height: auto;
+		padding: 0px 8px 0px 8px;
 	}
-	.buybtn p{
-		color: white;
+	.letterBtn{
+		display: block;
+		width: 100%;
+		height: auto;
+		padding: 2px;
+		font-size: 12px;
+	}
+	.cardbox {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+		grid-row-gap: 10px;
+		grid-column-gap: 10px;
+		padding: 20px;
+
+	}
+	.card {
+	    /* Add shadows to create the "card" effect */
+		width: 100%;
+	    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	    transition: 0.3s;
+	    border-radius: 10px;
+	    display: grid;
+	    grid-template-rows: 200px 75px auto;
+		background-color: rgba(255, 255, 255, .6);
+	}
+	.card:hover {
+	    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+	    transform: scale(1.025);
+	}
+	.flowerImg img{
+		display: block;
+		margin:auto;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		height: 200px;
+		width: 100%;
+		object-fit: cover;
+		background-color: black;
+	}
+	.daylilyName{
+		color: black;
+		align-self: center;
+		margin-top: -20px;
+	}
+	.daylilyName h3{
+		color: black;
+	}
+	.buybtn{
+		display: block;
+		margin:auto;
+		width: 100%;
+		height: auto;
+		background-color: rgba(203, 64, 17, 1);
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		color:white;
+		align-self: center;
+		padding: 6px 0px 6px 0px;
+	}
+	.buybtn a{
+		color:white;
+	}
+	.displayLabel{
+		display: block;
+		margin:auto;
+		width: 100%;
+		height: auto;
+		background-color: rgba(255, 255, 255, 0);
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		color:black;
+		align-self: center;
+		padding: 6px 0px 6px 0px;
 	}
 	.buybtn:hover{
 		background-color: rgba(203, 64, 17, .8);
 	}
-	img {
-		border-radius: 10px;
-		height: 200px;
-		width: 100%;
-		object-fit: cover;
-		padding: 4px;
-		
-	}
-	@media (max-width: 900px) { 
-		.cardbox {
-			grid-template-columns: 33% 33% 33%;
-		}
-	}
-	@media (max-width: 700px) { 
-		.cardbox {
-			grid-template-columns: 50% 50%;
-		}
-	}
-	@media (max-width: 500px) { 
-		.cardbox {
-			grid-template-columns: 100%;
-		}
+	#pageFlowBottom{
+		margin-bottom: 30px;
 	}
 </style>
 
 
-<div class="container-fluid">
-	<h1 class="text-center" style="padding-bottom: 25px;">Daylily Catalog</h1>
-	<p id="alphabetLinks"></p>
+	<h1 style="padding-bottom: 25px;">Daylily Catalog</h1>
+	<div id="alphabetLinks"></div>
 	<p id="pageLetter" style="visibility: hidden; height:0px;">M<p>
 	<div id="pageFlowTop">
 		<p id="prevLinkTop"></p>
 		<p id="nextLinkTop"></p>
 	</div>
-	<p class="text-center">Daylilies starting with the letter "M"</p>
+	<h2>Daylilies starting with the letter "M"</h2>
 
 	<div class="cardbox">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			 <div class="card">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -2745,23 +2775,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/macchia.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Macchia.jpg alt="Daylily Photo - Macchia" />
-				</a>
+					<a href="/Daylilies/macchia.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Macchia.jpg alt="Daylily Photo - Macchia" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/macchia.html" class="daylilyName"><h4>Macchia</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/macchia.html"><h3>Macchia</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -3423,19 +3458,24 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 				
-				<div class="container info">
-					<a href="/Daylilies/macon-bacon.html" class="daylilyName"><h4>Macon Bacon</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/macon-bacon.html"><h3>Macon Bacon</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -4097,23 +4137,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/madly-red.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Madly_Red.jpg alt="Daylily Photo - Madly Red" />
-				</a>
+					<a href="/Daylilies/madly-red.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Madly_Red.jpg alt="Daylily Photo - Madly Red" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/madly-red.html" class="daylilyName"><h4>Madly Red</h4></a>
-					
-						<a href="/Daylilies/madly-red.html"><div class="buybtn"><p>$12.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/madly-red.html"><h3>Madly Red</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/madly-red.html">$12.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -4775,23 +4820,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/magic-carpet-ride.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Magic_Carpet_Ride.jpg alt="Daylily Photo - Magic Carpet Ride" />
-				</a>
+					<a href="/Daylilies/magic-carpet-ride.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Magic_Carpet_Ride.jpg alt="Daylily Photo - Magic Carpet Ride" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/magic-carpet-ride.html" class="daylilyName"><h4>Magic Carpet Ride</h4></a>
-					
-						<a href="/Daylilies/magic-carpet-ride.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/magic-carpet-ride.html"><h3>Magic Carpet Ride</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/magic-carpet-ride.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -5453,23 +5503,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/magical-marrakech.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Magical%20Marrakech%206262-E.jpg alt="Daylily Photo - Magical Marrakech" />
-				</a>
+					<a href="/Daylilies/magical-marrakech.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Magical%20Marrakech%206262-E.jpg alt="Daylily Photo - Magical Marrakech" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/magical-marrakech.html" class="daylilyName"><h4>Magical Marrakech</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/magical-marrakech.html"><h3>Magical Marrakech</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -6131,23 +6186,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/magnificent-grape.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/MAGNIFICENT%20GRAPE%206262-F.jpg alt="Daylily Photo - Magnificent Grape" />
-				</a>
+					<a href="/Daylilies/magnificent-grape.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/MAGNIFICENT%20GRAPE%206262-F.jpg alt="Daylily Photo - Magnificent Grape" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/magnificent-grape.html" class="daylilyName"><h4>Magnificent Grape</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/magnificent-grape.html"><h3>Magnificent Grape</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -6809,23 +6869,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mahogany-crystal.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mahogany%20Crystal.jpg alt="Daylily Photo - Mahogany Crystal" />
-				</a>
+					<a href="/Daylilies/mahogany-crystal.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mahogany%20Crystal.jpg alt="Daylily Photo - Mahogany Crystal" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mahogany-crystal.html" class="daylilyName"><h4>Mahogany Crystal</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mahogany-crystal.html"><h3>Mahogany Crystal</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -7487,23 +7552,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/majorca-isle.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Majorcaisle.jpg alt="Daylily Photo - Majorca Isle" />
-				</a>
+					<a href="/Daylilies/majorca-isle.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Majorcaisle.jpg alt="Daylily Photo - Majorca Isle" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/majorca-isle.html" class="daylilyName"><h4>Majorca Isle</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/majorca-isle.html"><h3>Majorca Isle</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -8165,23 +8235,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/making-an-impact.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/MAKING%20A%20IMPACT.jpg alt="Daylily Photo - Making An Impact" />
-				</a>
+					<a href="/Daylilies/making-an-impact.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/MAKING%20A%20IMPACT.jpg alt="Daylily Photo - Making An Impact" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/making-an-impact.html" class="daylilyName"><h4>Making An Impact</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/making-an-impact.html"><h3>Making An Impact</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -8843,23 +8918,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mal.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mal.jpg alt="Daylily Photo - Mal" />
-				</a>
+					<a href="/Daylilies/mal.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mal.jpg alt="Daylily Photo - Mal" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mal.html" class="daylilyName"><h4>Mal</h4></a>
-					
-						<a href="/Daylilies/mal.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mal.html"><h3>Mal</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/mal.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -9521,23 +9601,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/malaysian-monarch.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Malaysian%20Monarch.jpg alt="Daylily Photo - Malaysian Monarch" />
-				</a>
+					<a href="/Daylilies/malaysian-monarch.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Malaysian%20Monarch.jpg alt="Daylily Photo - Malaysian Monarch" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/malaysian-monarch.html" class="daylilyName"><h4>Malaysian Monarch</h4></a>
-					
-						<a href="/Daylilies/malaysian-monarch.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/malaysian-monarch.html"><h3>Malaysian Monarch</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/malaysian-monarch.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -10199,19 +10284,24 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 				
-				<div class="container info">
-					<a href="/Daylilies/malaysian-spice.html" class="daylilyName"><h4>Malaysian Spice</h4></a>
-					
-						<a href="/Daylilies/malaysian-spice.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/malaysian-spice.html"><h3>Malaysian Spice</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/malaysian-spice.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -10873,23 +10963,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/maleny-debutante.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Maleny_Debutante.jpg alt="Daylily Photo - Maleny Debutante" />
-				</a>
+					<a href="/Daylilies/maleny-debutante.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Maleny_Debutante.jpg alt="Daylily Photo - Maleny Debutante" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/maleny-debutante.html" class="daylilyName"><h4>Maleny Debutante</h4></a>
-					
-						<a href="/Daylilies/maleny-debutante.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/maleny-debutante.html"><h3>Maleny Debutante</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/maleny-debutante.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -11551,23 +11646,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/maleny-debutante.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Maleny_Debutante.jpg alt="Daylily Photo - Maleny Debutante" />
-				</a>
+					<a href="/Daylilies/maleny-debutante.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Maleny_Debutante.jpg alt="Daylily Photo - Maleny Debutante" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/maleny-debutante.html" class="daylilyName"><h4>Maleny Debutante</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/maleny-debutante.html"><h3>Maleny Debutante</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -12229,23 +12329,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mamas-cherry-pie.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mama's_Cherry_Pie.jpg alt="Daylily Photo - Mama's Cherry Pie" />
-				</a>
+					<a href="/Daylilies/mamas-cherry-pie.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mama's_Cherry_Pie.jpg alt="Daylily Photo - Mama's Cherry Pie" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mamas-cherry-pie.html" class="daylilyName"><h4>Mama's Cherry Pie</h4></a>
-					
-						<a href="/Daylilies/mamas-cherry-pie.html"><div class="buybtn"><p>$10.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mamas-cherry-pie.html"><h3>Mama's Cherry Pie</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/mamas-cherry-pie.html">$10.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -12907,23 +13012,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mandalay-bay-music.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mandalay_Bay.jpg alt="Daylily Photo - Mandalay Bay Music" />
-				</a>
+					<a href="/Daylilies/mandalay-bay-music.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mandalay_Bay.jpg alt="Daylily Photo - Mandalay Bay Music" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mandalay-bay-music.html" class="daylilyName"><h4>Mandalay Bay Music</h4></a>
-					
-						<a href="/Daylilies/mandalay-bay-music.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mandalay-bay-music.html"><h3>Mandalay Bay Music</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/mandalay-bay-music.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -13585,23 +13695,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mandarin-corsage.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/mandarin_corsage.jpg alt="Daylily Photo - Mandarin Corsage" />
-				</a>
+					<a href="/Daylilies/mandarin-corsage.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/mandarin_corsage.jpg alt="Daylily Photo - Mandarin Corsage" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mandarin-corsage.html" class="daylilyName"><h4>Mandarin Corsage</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mandarin-corsage.html"><h3>Mandarin Corsage</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -14268,19 +14383,24 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 				
-				<div class="container info">
-					<a href="/Daylilies/mandarin-cowboy.html" class="daylilyName"><h4>Mandarin Cowboy</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mandarin-cowboy.html"><h3>Mandarin Cowboy</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -14942,23 +15062,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mandarin-seas.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/mandarin_seas.jpg alt="Daylily Photo - Mandarin Seas" />
-				</a>
+					<a href="/Daylilies/mandarin-seas.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/mandarin_seas.jpg alt="Daylily Photo - Mandarin Seas" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mandarin-seas.html" class="daylilyName"><h4>Mandarin Seas</h4></a>
-					
-						<a href="/Daylilies/mandarin-seas.html"><div class="buybtn"><p>$10.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mandarin-seas.html"><h3>Mandarin Seas</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/mandarin-seas.html">$10.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -15620,19 +15745,24 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 				
-				<div class="container info">
-					<a href="/Daylilies/manhattan-night.html" class="daylilyName"><h4>Manhattan Night</h4></a>
-					
-						<a href="/Daylilies/manhattan-night.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/manhattan-night.html"><h3>Manhattan Night</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/manhattan-night.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -16294,23 +16424,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mariachi.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mariachi.jpg alt="Daylily Photo - Mariachi" />
-				</a>
+					<a href="/Daylilies/mariachi.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mariachi.jpg alt="Daylily Photo - Mariachi" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mariachi.html" class="daylilyName"><h4>Mariachi</h4></a>
-					
-						<a href="/Daylilies/mariachi.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mariachi.html"><h3>Mariachi</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/mariachi.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -16972,23 +17107,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/marion-tyus.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Marion_Tyus.jpg alt="Daylily Photo - Marion Tyus" />
-				</a>
+					<a href="/Daylilies/marion-tyus.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Marion_Tyus.jpg alt="Daylily Photo - Marion Tyus" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/marion-tyus.html" class="daylilyName"><h4>Marion Tyus</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/marion-tyus.html"><h3>Marion Tyus</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -17655,19 +17795,24 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 				
-				<div class="container info">
-					<a href="/Daylilies/marks-bouquet.html" class="daylilyName"><h4>Mark's Bouquet</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/marks-bouquet.html"><h3>Mark's Bouquet</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -18334,19 +18479,24 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 				
-				<div class="container info">
-					<a href="/Daylilies/marked-by-lydia.html" class="daylilyName"><h4>Marked By Lydia</h4></a>
-					
-						<a href="/Daylilies/marked-by-lydia.html"><div class="buybtn"><p>$10.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/marked-by-lydia.html"><h3>Marked By Lydia</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/marked-by-lydia.html">$10.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -19008,23 +19158,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/martha-adams.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Martha%20Adams.jpg alt="Daylily Photo - Martha Adams" />
-				</a>
+					<a href="/Daylilies/martha-adams.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Martha%20Adams.jpg alt="Daylily Photo - Martha Adams" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/martha-adams.html" class="daylilyName"><h4>Martha Adams</h4></a>
-					
-						<a href="/Daylilies/martha-adams.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/martha-adams.html"><h3>Martha Adams</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/martha-adams.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -19686,23 +19841,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/martha-ann-mcwilliams.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Martha-Anne-McWilliams.jpg alt="Daylily Photo - Martha Ann Mcwilliams" />
-				</a>
+					<a href="/Daylilies/martha-ann-mcwilliams.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Martha-Anne-McWilliams.jpg alt="Daylily Photo - Martha Ann Mcwilliams" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/martha-ann-mcwilliams.html" class="daylilyName"><h4>Martha Ann Mcwilliams</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/martha-ann-mcwilliams.html"><h3>Martha Ann Mcwilliams</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -20364,23 +20524,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/martha-reed.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Martha_Reed.jpg alt="Daylily Photo - Martha Reed" />
-				</a>
+					<a href="/Daylilies/martha-reed.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Martha_Reed.jpg alt="Daylily Photo - Martha Reed" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/martha-reed.html" class="daylilyName"><h4>Martha Reed</h4></a>
-					
-						<a href="/Daylilies/martha-reed.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/martha-reed.html"><h3>Martha Reed</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/martha-reed.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -21042,23 +21207,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/martina-verhaert.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/MARTINA_Verhaert.jpg alt="Daylily Photo - Martina Verhaert" />
-				</a>
+					<a href="/Daylilies/martina-verhaert.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/MARTINA_Verhaert.jpg alt="Daylily Photo - Martina Verhaert" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/martina-verhaert.html" class="daylilyName"><h4>Martina Verhaert</h4></a>
-					
-						<a href="/Daylilies/martina-verhaert.html"><div class="buybtn"><p>$12.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/martina-verhaert.html"><h3>Martina Verhaert</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/martina-verhaert.html">$12.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -21720,19 +21890,24 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 				
-				<div class="container info">
-					<a href="/Daylilies/mary-frances-ragain.html" class="daylilyName"><h4>Mary Frances Ragain</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mary-frances-ragain.html"><h3>Mary Frances Ragain</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -22399,19 +22574,24 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 				
-				<div class="container info">
-					<a href="/Daylilies/mary-jo-wright.html" class="daylilyName"><h4>Mary Jo Wright</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mary-jo-wright.html"><h3>Mary Jo Wright</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -23073,23 +23253,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mary-lois-burgess.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mary_Lois_Burgess.jpg alt="Daylily Photo - Mary Lois Burgess" />
-				</a>
+					<a href="/Daylilies/mary-lois-burgess.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mary_Lois_Burgess.jpg alt="Daylily Photo - Mary Lois Burgess" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mary-lois-burgess.html" class="daylilyName"><h4>Mary Lois Burgess</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mary-lois-burgess.html"><h3>Mary Lois Burgess</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -23751,23 +23936,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mask-of-eternity.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mask_Of_Eternity.jpg alt="Daylily Photo - Mask Of Eternity" />
-				</a>
+					<a href="/Daylilies/mask-of-eternity.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mask_Of_Eternity.jpg alt="Daylily Photo - Mask Of Eternity" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mask-of-eternity.html" class="daylilyName"><h4>Mask Of Eternity</h4></a>
-					
-						<a href="/Daylilies/mask-of-eternity.html"><div class="buybtn"><p>$10.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mask-of-eternity.html"><h3>Mask Of Eternity</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/mask-of-eternity.html">$10.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -24429,23 +24619,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/master-of-the-moon.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Master%20of%20the%20Moon.jpg alt="Daylily Photo - Master Of The Moon" />
-				</a>
+					<a href="/Daylilies/master-of-the-moon.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Master%20of%20the%20Moon.jpg alt="Daylily Photo - Master Of The Moon" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/master-of-the-moon.html" class="daylilyName"><h4>Master Of The Moon</h4></a>
-					
-						<a href="/Daylilies/master-of-the-moon.html"><div class="buybtn"><p>$20.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/master-of-the-moon.html"><h3>Master Of The Moon</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/master-of-the-moon.html">$20.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -25107,23 +25302,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/matisse.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Matisse.jpg alt="Daylily Photo - Matisse" />
-				</a>
+					<a href="/Daylilies/matisse.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Matisse.jpg alt="Daylily Photo - Matisse" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/matisse.html" class="daylilyName"><h4>Matisse</h4></a>
-					
-						<a href="/Daylilies/matisse.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/matisse.html"><h3>Matisse</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/matisse.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -25785,23 +25985,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/maurepas-peach-cobbler.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/MAUREPAS%20PEACH%20COBBLER.jpg alt="Daylily Photo - Maurepas Peach Cobbler" />
-				</a>
+					<a href="/Daylilies/maurepas-peach-cobbler.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/MAUREPAS%20PEACH%20COBBLER.jpg alt="Daylily Photo - Maurepas Peach Cobbler" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/maurepas-peach-cobbler.html" class="daylilyName"><h4>Maurepas Peach Cobbler</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/maurepas-peach-cobbler.html"><h3>Maurepas Peach Cobbler</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -26463,23 +26668,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/may-colvin.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/May_Colvinrev.jpg alt="Daylily Photo - May Colvin" />
-				</a>
+					<a href="/Daylilies/may-colvin.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/May_Colvinrev.jpg alt="Daylily Photo - May Colvin" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/may-colvin.html" class="daylilyName"><h4>May Colvin</h4></a>
-					
-						<a href="/Daylilies/may-colvin.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/may-colvin.html"><h3>May Colvin</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/may-colvin.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -27141,23 +27351,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/medicine-feather.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Medicine%20Feather%20revised.jpg alt="Daylily Photo - Medicine Feather" />
-				</a>
+					<a href="/Daylilies/medicine-feather.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Medicine%20Feather%20revised.jpg alt="Daylily Photo - Medicine Feather" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/medicine-feather.html" class="daylilyName"><h4>Medicine Feather</h4></a>
-					
-						<a href="/Daylilies/medicine-feather.html"><div class="buybtn"><p>$10.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/medicine-feather.html"><h3>Medicine Feather</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/medicine-feather.html">$10.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -27819,23 +28034,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/medieval-splendor.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Medieval%20Splendor.jpg alt="Daylily Photo - Medieval Splendor" />
-				</a>
+					<a href="/Daylilies/medieval-splendor.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Medieval%20Splendor.jpg alt="Daylily Photo - Medieval Splendor" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/medieval-splendor.html" class="daylilyName"><h4>Medieval Splendor</h4></a>
-					
-						<a href="/Daylilies/medieval-splendor.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/medieval-splendor.html"><h3>Medieval Splendor</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/medieval-splendor.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -28497,23 +28717,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/meet-joe-black.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/meet_joe_black.jpg alt="Daylily Photo - Meet Joe Black" />
-				</a>
+					<a href="/Daylilies/meet-joe-black.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/meet_joe_black.jpg alt="Daylily Photo - Meet Joe Black" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/meet-joe-black.html" class="daylilyName"><h4>Meet Joe Black</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/meet-joe-black.html"><h3>Meet Joe Black</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -29175,23 +29400,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/memphis.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/memphis.jpg alt="Daylily Photo - Memphis" />
-				</a>
+					<a href="/Daylilies/memphis.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/memphis.jpg alt="Daylily Photo - Memphis" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/memphis.html" class="daylilyName"><h4>Memphis</h4></a>
-					
-						<a href="/Daylilies/memphis.html"><div class="buybtn"><p>$20.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/memphis.html"><h3>Memphis</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/memphis.html">$20.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -29853,23 +30083,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mendocino.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mendocino.jpg alt="Daylily Photo - Mendocino" />
-				</a>
+					<a href="/Daylilies/mendocino.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mendocino.jpg alt="Daylily Photo - Mendocino" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mendocino.html" class="daylilyName"><h4>Mendocino</h4></a>
-					
-						<a href="/Daylilies/mendocino.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mendocino.html"><h3>Mendocino</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/mendocino.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -30531,23 +30766,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mephistopheles.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/MEPHISTOPHELES.jpg alt="Daylily Photo - Mephistopheles" />
-				</a>
+					<a href="/Daylilies/mephistopheles.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/MEPHISTOPHELES.jpg alt="Daylily Photo - Mephistopheles" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mephistopheles.html" class="daylilyName"><h4>Mephistopheles</h4></a>
-					
-						<a href="/Daylilies/mephistopheles.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mephistopheles.html"><h3>Mephistopheles</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/mephistopheles.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -31209,23 +31449,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/meringue-mirage.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Meringue_Mirage.jpg alt="Daylily Photo - Meringue Mirage" />
-				</a>
+					<a href="/Daylilies/meringue-mirage.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Meringue_Mirage.jpg alt="Daylily Photo - Meringue Mirage" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/meringue-mirage.html" class="daylilyName"><h4>Meringue Mirage</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/meringue-mirage.html"><h3>Meringue Mirage</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -31887,23 +32132,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/merle-kent.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Merle%20Kent.jpg alt="Daylily Photo - Merle Kent" />
-				</a>
+					<a href="/Daylilies/merle-kent.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Merle%20Kent.jpg alt="Daylily Photo - Merle Kent" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/merle-kent.html" class="daylilyName"><h4>Merle Kent</h4></a>
-					
-						<a href="/Daylilies/merle-kent.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/merle-kent.html"><h3>Merle Kent</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/merle-kent.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -32570,19 +32820,24 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 				
-				<div class="container info">
-					<a href="/Daylilies/mermaid-harbor.html" class="daylilyName"><h4>Mermaid Harbor</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mermaid-harbor.html"><h3>Mermaid Harbor</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -33244,23 +33499,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mermaid-wishes.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mermaid%20Wishes.jpg alt="Daylily Photo - Mermaid Wishes" />
-				</a>
+					<a href="/Daylilies/mermaid-wishes.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mermaid%20Wishes.jpg alt="Daylily Photo - Mermaid Wishes" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mermaid-wishes.html" class="daylilyName"><h4>Mermaid Wishes</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mermaid-wishes.html"><h3>Mermaid Wishes</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -33922,23 +34182,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/merry-moppet.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/merry%20moppet.jpg alt="Daylily Photo - Merry Moppet" />
-				</a>
+					<a href="/Daylilies/merry-moppet.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/merry%20moppet.jpg alt="Daylily Photo - Merry Moppet" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/merry-moppet.html" class="daylilyName"><h4>Merry Moppet</h4></a>
-					
-						<a href="/Daylilies/merry-moppet.html"><div class="buybtn"><p>$15.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/merry-moppet.html"><h3>Merry Moppet</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/merry-moppet.html">$15.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -34600,23 +34865,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/merry-morgan.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/MerryMorgan.jpg alt="Daylily Photo - Merry Morgan" />
-				</a>
+					<a href="/Daylilies/merry-morgan.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/MerryMorgan.jpg alt="Daylily Photo - Merry Morgan" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/merry-morgan.html" class="daylilyName"><h4>Merry Morgan</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/merry-morgan.html"><h3>Merry Morgan</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -35278,23 +35548,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mesa-verde.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mesa_Verde.jpg alt="Daylily Photo - Mesa Verde" />
-				</a>
+					<a href="/Daylilies/mesa-verde.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mesa_Verde.jpg alt="Daylily Photo - Mesa Verde" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mesa-verde.html" class="daylilyName"><h4>Mesa Verde</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mesa-verde.html"><h3>Mesa Verde</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -35956,23 +36231,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/metallic-montage.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Metallic%20Montage.jpg alt="Daylily Photo - Metallic Montage" />
-				</a>
+					<a href="/Daylilies/metallic-montage.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Metallic%20Montage.jpg alt="Daylily Photo - Metallic Montage" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/metallic-montage.html" class="daylilyName"><h4>Metallic Montage</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/metallic-montage.html"><h3>Metallic Montage</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -36634,23 +36914,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/michael-miller.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/michael_miller.jpg alt="Daylily Photo - Michael Miller" />
-				</a>
+					<a href="/Daylilies/michael-miller.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/michael_miller.jpg alt="Daylily Photo - Michael Miller" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/michael-miller.html" class="daylilyName"><h4>Michael Miller</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/michael-miller.html"><h3>Michael Miller</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -37312,23 +37597,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/micro-chip.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/micro_chip.jpg alt="Daylily Photo - Micro Chip" />
-				</a>
+					<a href="/Daylilies/micro-chip.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/micro_chip.jpg alt="Daylily Photo - Micro Chip" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/micro-chip.html" class="daylilyName"><h4>Micro Chip</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/micro-chip.html"><h3>Micro Chip</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -37990,23 +38280,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/micro-dots.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/micro_dots.jpg alt="Daylily Photo - Micro Dots" />
-				</a>
+					<a href="/Daylilies/micro-dots.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/micro_dots.jpg alt="Daylily Photo - Micro Dots" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/micro-dots.html" class="daylilyName"><h4>Micro Dots</h4></a>
-					
-						<a href="/Daylilies/micro-dots.html"><div class="buybtn"><p>$10.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/micro-dots.html"><h3>Micro Dots</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/micro-dots.html">$10.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -38668,19 +38963,24 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 				
-				<div class="container info">
-					<a href="/Daylilies/midnight-in-the-garden.html" class="daylilyName"><h4>Midnight In The Garden</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/midnight-in-the-garden.html"><h3>Midnight In The Garden</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -39342,23 +39642,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/midnight-messenger.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Midnight_Messenger.jpg alt="Daylily Photo - Midnight Messenger" />
-				</a>
+					<a href="/Daylilies/midnight-messenger.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Midnight_Messenger.jpg alt="Daylily Photo - Midnight Messenger" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/midnight-messenger.html" class="daylilyName"><h4>Midnight Messenger</h4></a>
-					
-						<a href="/Daylilies/midnight-messenger.html"><div class="buybtn"><p>$12.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/midnight-messenger.html"><h3>Midnight Messenger</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/midnight-messenger.html">$12.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -40020,23 +40325,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/midnight-raider.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Midnight%20Raider.jpg alt="Daylily Photo - Midnight Raider" />
-				</a>
+					<a href="/Daylilies/midnight-raider.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Midnight%20Raider.jpg alt="Daylily Photo - Midnight Raider" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/midnight-raider.html" class="daylilyName"><h4>Midnight Raider</h4></a>
-					
-						<a href="/Daylilies/midnight-raider.html"><div class="buybtn"><p>$10.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/midnight-raider.html"><h3>Midnight Raider</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/midnight-raider.html">$10.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -40698,23 +41008,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mikado.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mikado.jpg alt="Daylily Photo - Mikado" />
-				</a>
+					<a href="/Daylilies/mikado.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mikado.jpg alt="Daylily Photo - Mikado" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mikado.html" class="daylilyName"><h4>Mikado</h4></a>
-					
-						<a href="/Daylilies/mikado.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mikado.html"><h3>Mikado</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/mikado.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -41376,23 +41691,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/ming-porcelain.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Ming_Porcelain.jpg alt="Daylily Photo - Ming Porcelain" />
-				</a>
+					<a href="/Daylilies/ming-porcelain.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Ming_Porcelain.jpg alt="Daylily Photo - Ming Porcelain" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/ming-porcelain.html" class="daylilyName"><h4>Ming Porcelain</h4></a>
-					
-						<a href="/Daylilies/ming-porcelain.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/ming-porcelain.html"><h3>Ming Porcelain</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/ming-porcelain.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -42054,19 +42374,24 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 				
-				<div class="container info">
-					<a href="/Daylilies/mini-might.html" class="daylilyName"><h4>Mini Might</h4></a>
-					
-						<a href="/Daylilies/mini-might.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mini-might.html"><h3>Mini Might</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/mini-might.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -42733,19 +43058,24 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 				
-				<div class="container info">
-					<a href="/Daylilies/mini-pearl.html" class="daylilyName"><h4>Mini Pearl</h4></a>
-					
-						<a href="/Daylilies/mini-pearl.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mini-pearl.html"><h3>Mini Pearl</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/mini-pearl.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -43407,23 +43737,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/minstrels-fire.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/minstrels%20fire.jpg alt="Daylily Photo - Minstrel's Fire" />
-				</a>
+					<a href="/Daylilies/minstrels-fire.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/minstrels%20fire.jpg alt="Daylily Photo - Minstrel's Fire" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/minstrels-fire.html" class="daylilyName"><h4>Minstrel's Fire</h4></a>
-					
-						<a href="/Daylilies/minstrels-fire.html"><div class="buybtn"><p>$10.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/minstrels-fire.html"><h3>Minstrel's Fire</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/minstrels-fire.html">$10.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -44085,23 +44420,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mirror-mirror.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mirror_Mirror.jpg alt="Daylily Photo - Mirror Mirror" />
-				</a>
+					<a href="/Daylilies/mirror-mirror.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mirror_Mirror.jpg alt="Daylily Photo - Mirror Mirror" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mirror-mirror.html" class="daylilyName"><h4>Mirror Mirror</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mirror-mirror.html"><h3>Mirror Mirror</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -44763,19 +45103,24 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 				
-				<div class="container info">
-					<a href="/Daylilies/miss-apache.html" class="daylilyName"><h4>Miss Apache</h4></a>
-					
-						<a href="/Daylilies/miss-apache.html"><div class="buybtn"><p>$10.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/miss-apache.html"><h3>Miss Apache</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/miss-apache.html">$10.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -45437,23 +45782,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mississippi-man.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mississippi_Man.jpg alt="Daylily Photo - Mississippi Man" />
-				</a>
+					<a href="/Daylilies/mississippi-man.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mississippi_Man.jpg alt="Daylily Photo - Mississippi Man" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mississippi-man.html" class="daylilyName"><h4>Mississippi Man</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mississippi-man.html"><h3>Mississippi Man</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -46115,23 +46465,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mississippi-memento.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mississippi%20Memento.jpg alt="Daylily Photo - Mississippi Memento" />
-				</a>
+					<a href="/Daylilies/mississippi-memento.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mississippi%20Memento.jpg alt="Daylily Photo - Mississippi Memento" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mississippi-memento.html" class="daylilyName"><h4>Mississippi Memento</h4></a>
-					
-						<a href="/Daylilies/mississippi-memento.html"><div class="buybtn"><p>$15.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mississippi-memento.html"><h3>Mississippi Memento</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/mississippi-memento.html">$15.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -46793,23 +47148,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mississippi-red-dragon.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mississippi_Red_Dragon.jpg alt="Daylily Photo - Mississippi Red Dragon" />
-				</a>
+					<a href="/Daylilies/mississippi-red-dragon.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mississippi_Red_Dragon.jpg alt="Daylily Photo - Mississippi Red Dragon" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mississippi-red-dragon.html" class="daylilyName"><h4>Mississippi Red Dragon</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mississippi-red-dragon.html"><h3>Mississippi Red Dragon</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -47471,23 +47831,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mister-big-stuff.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mister%20Big%20Stuff.jpg alt="Daylily Photo - Mister Big Stuff" />
-				</a>
+					<a href="/Daylilies/mister-big-stuff.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mister%20Big%20Stuff.jpg alt="Daylily Photo - Mister Big Stuff" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mister-big-stuff.html" class="daylilyName"><h4>Mister Big Stuff</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mister-big-stuff.html"><h3>Mister Big Stuff</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -48149,23 +48514,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mister-homer.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mister_Homer.jpg alt="Daylily Photo - Mister Homer" />
-				</a>
+					<a href="/Daylilies/mister-homer.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mister_Homer.jpg alt="Daylily Photo - Mister Homer" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mister-homer.html" class="daylilyName"><h4>Mister Homer</h4></a>
-					
-						<a href="/Daylilies/mister-homer.html"><div class="buybtn"><p>$15.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mister-homer.html"><h3>Mister Homer</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/mister-homer.html">$15.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -48827,23 +49197,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mister-lucky.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mister_Lucky.jpg alt="Daylily Photo - Mister Lucky" />
-				</a>
+					<a href="/Daylilies/mister-lucky.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mister_Lucky.jpg alt="Daylily Photo - Mister Lucky" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mister-lucky.html" class="daylilyName"><h4>Mister Lucky</h4></a>
-					
-						<a href="/Daylilies/mister-lucky.html"><div class="buybtn"><p>$10.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mister-lucky.html"><h3>Mister Lucky</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/mister-lucky.html">$10.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -49505,23 +49880,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/moment-in-the-sun.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/moment_in_the_sun.jpg alt="Daylily Photo - Moment In The Sun" />
-				</a>
+					<a href="/Daylilies/moment-in-the-sun.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/moment_in_the_sun.jpg alt="Daylily Photo - Moment In The Sun" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/moment-in-the-sun.html" class="daylilyName"><h4>Moment In The Sun</h4></a>
-					
-						<a href="/Daylilies/moment-in-the-sun.html"><div class="buybtn"><p>$20.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/moment-in-the-sun.html"><h3>Moment In The Sun</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/moment-in-the-sun.html">$20.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -50183,23 +50563,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/monkey-business.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Monkey_Business.jpg alt="Daylily Photo - Monkey Business" />
-				</a>
+					<a href="/Daylilies/monkey-business.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Monkey_Business.jpg alt="Daylily Photo - Monkey Business" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/monkey-business.html" class="daylilyName"><h4>Monkey Business</h4></a>
-					
-						<a href="/Daylilies/monkey-business.html"><div class="buybtn"><p>$15.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/monkey-business.html"><h3>Monkey Business</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/monkey-business.html">$15.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -50861,23 +51246,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/monkey-hips.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Monkey_Hips.jpg alt="Daylily Photo - Monkey Hips" />
-				</a>
+					<a href="/Daylilies/monkey-hips.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Monkey_Hips.jpg alt="Daylily Photo - Monkey Hips" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/monkey-hips.html" class="daylilyName"><h4>Monkey Hips</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/monkey-hips.html"><h3>Monkey Hips</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -51539,19 +51929,24 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 				
-				<div class="container info">
-					<a href="/Daylilies/moonlight-on-the-beach.html" class="daylilyName"><h4>Moonlight On the Beach</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/moonlight-on-the-beach.html"><h3>Moonlight On the Beach</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -52213,23 +52608,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/moonlight-sail.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/moonlight_sail.jpg alt="Daylily Photo - Moonlight Sail" />
-				</a>
+					<a href="/Daylilies/moonlight-sail.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/moonlight_sail.jpg alt="Daylily Photo - Moonlight Sail" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/moonlight-sail.html" class="daylilyName"><h4>Moonlight Sail</h4></a>
-					
-						<a href="/Daylilies/moonlight-sail.html"><div class="buybtn"><p>$20.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/moonlight-sail.html"><h3>Moonlight Sail</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/moonlight-sail.html">$20.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -52891,23 +53291,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/morrie-otte.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Morrie%20Otte.jpg alt="Daylily Photo - Morrie Otte" />
-				</a>
+					<a href="/Daylilies/morrie-otte.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Morrie%20Otte.jpg alt="Daylily Photo - Morrie Otte" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/morrie-otte.html" class="daylilyName"><h4>Morrie Otte</h4></a>
-					
-						<a href="/Daylilies/morrie-otte.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/morrie-otte.html"><h3>Morrie Otte</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/morrie-otte.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -53569,23 +53974,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/morticia.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Morticia%20%20Munson%201994_1509905465.jpg alt="Daylily Photo - Morticia" />
-				</a>
+					<a href="/Daylilies/morticia.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Morticia%20%20Munson%201994_1509905465.jpg alt="Daylily Photo - Morticia" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/morticia.html" class="daylilyName"><h4>Morticia</h4></a>
-					
-						<a href="/Daylilies/morticia.html"><div class="buybtn"><p>$8.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/morticia.html"><h3>Morticia</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/morticia.html">$8.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -54247,23 +54657,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/moses-fire.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Moses'_Fire.jpg alt="Daylily Photo - Moses' Fire" />
-				</a>
+					<a href="/Daylilies/moses-fire.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Moses'_Fire.jpg alt="Daylily Photo - Moses' Fire" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/moses-fire.html" class="daylilyName"><h4>Moses' Fire</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/moses-fire.html"><h3>Moses' Fire</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -54925,23 +55340,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mother-ocean.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mother_Ocean.jpg alt="Daylily Photo - Mother Ocean" />
-				</a>
+					<a href="/Daylilies/mother-ocean.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mother_Ocean.jpg alt="Daylily Photo - Mother Ocean" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mother-ocean.html" class="daylilyName"><h4>Mother Ocean</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mother-ocean.html"><h3>Mother Ocean</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -55608,19 +56028,24 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 				
-				<div class="container info">
-					<a href="/Daylilies/mountains-bow-down.html" class="daylilyName"><h4>Mountains Bow Down</h4></a>
-					
-						<a href="/Daylilies/mountains-bow-down.html"><div class="buybtn"><p>$20.00</p></div></a>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mountains-bow-down.html"><h3>Mountains Bow Down</h3></a>
+			</div>
+
+			
+			<div class="buybtn">
+				<a href="/Daylilies/mountains-bow-down.html">$20.00</a>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -56282,23 +56707,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mr-obvious.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mr_Obvious.jpg alt="Daylily Photo - Mr Obvious" />
-				</a>
+					<a href="/Daylilies/mr-obvious.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mr_Obvious.jpg alt="Daylily Photo - Mr Obvious" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mr-obvious.html" class="daylilyName"><h4>Mr Obvious</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mr-obvious.html"><h3>Mr Obvious</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -56960,23 +57390,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/my-heart-belongs-to-daddy.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/My%20Heart%20Belongs%20To%20Daddy%20Wilkerson%202009.jpg alt="Daylily Photo - My Heart Belongs To Daddy" />
-				</a>
+					<a href="/Daylilies/my-heart-belongs-to-daddy.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/My%20Heart%20Belongs%20To%20Daddy%20Wilkerson%202009.jpg alt="Daylily Photo - My Heart Belongs To Daddy" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/my-heart-belongs-to-daddy.html" class="daylilyName"><h4>My Heart Belongs To Daddy</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/my-heart-belongs-to-daddy.html"><h3>My Heart Belongs To Daddy</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -57638,23 +58073,28 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mythic-shores.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mythic%20Shores.jpg alt="Daylily Photo - Mythic Shores" />
-				</a>
+					<a href="/Daylilies/mythic-shores.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mythic%20Shores.jpg alt="Daylily Photo - Mythic Shores" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mythic-shores.html" class="daylilyName"><h4>Mythic Shores</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mythic-shores.html"><h3>Mythic Shores</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -58316,1559 +58756,1564 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 					
-				<a href="/Daylilies/mythic-voyage.html" class="subtleLink"> 
-				<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mythic%20Voyage.jpg alt="Daylily Photo - Mythic Voyage" />
-				</a>
+					<a href="/Daylilies/mythic-voyage.html" class="subtleLink"> 
+						<img src= http://www.daylilies.org/DaylilyDB/AHSPhoto/M/Mythic%20Voyage.jpg alt="Daylily Photo - Mythic Voyage" />
+					</a>
 				
-				<div class="container info">
-					<a href="/Daylilies/mythic-voyage.html" class="daylilyName"><h4>Mythic Voyage</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/mythic-voyage.html"><h3>Mythic Voyage</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			 <div class="card">
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		 <div class="card">
+		 	<div class="flowerImg">
 			 	<!-- check if there is a photo in gallery -->
 				
 				
@@ -60530,38 +60975,43 @@
 				 
 				<!-- if no photo in gallery, use database photo -->
 				
-				<div class="container info">
-					<a href="/Daylilies/marty-debolt.html" class="daylilyName"><h4>Marty DeBolt</h4></a>
-					
-						<p>Display Only<p>
-					
-					
-				</div>
+			</div>
+
+			<div class="daylilyName">
+				<a href="/Daylilies/marty-debolt.html"><h3>Marty DeBolt</h3></a>
+			</div>
+
+			
+			<div class="displayLabel">
+				<p>Display Only<p>
 			</div>
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	</div>
+
 	<div id="pageFlowBottom">
 		<p id="prevLinkBottom"></p>
 		<p id="nextLinkBottom"></p>
@@ -60576,12 +61026,12 @@
 			let letter = (i+10).toString(36);
 			let a = '';
 			if ( i < 25 ){
-				a = '<a class="letterBtn" href="/DaylilyCatalog/'+letter+'">'+ letter.toUpperCase() +'</a> / ';
+				a = '<a class="letterBtn" href="/DaylilyCatalog/'+letter+'">'+ letter.toUpperCase() +'</a>';
 			} else {
 				a = '<a class="letterBtn" href="/DaylilyCatalog/'+letter+'">'+ letter.toUpperCase() +'</a>';
-			};
+			}
 			linkString += a;
-		};
+		}
 		alphabetLinks.innerHTML = linkString;
 
 		let pageLetter = document.getElementById("pageLetter").innerHTML;
@@ -60598,27 +61048,23 @@
 		if (pageLetter != "A"){
 			prevLinkTop.innerHTML = '<a class="paginate" href="/DaylilyCatalog/'+prevLetter+'"><< Previous</a>';
 			prevLinkBottom.innerHTML = '<a class="paginate" href="/DaylilyCatalog/'+prevLetter+'"><< Previous</a>';
-		};
+		}
 		if (pageLetter != "Z"){
 			nextLinkTop.innerHTML = '<a class="paginate" href="/DaylilyCatalog/'+nextLetter+'">Next >></a>';
 			nextLinkBottom.innerHTML = '<a class="paginate" href="/DaylilyCatalog/'+nextLetter+'">Next >></a>';
-		};
+		}
 		function nextChar(c) {
 	    	return String.fromCharCode(c.charCodeAt(0) + 1);
-		};
+		}
 		function prevChar(c) {
 	    	return String.fromCharCode(c.charCodeAt(0) - 1);
-		}; 
+		}
 	};
 </script>
 
 	</div>
 
 
- <!-- Bootstrap Javascript -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 </body>
 </html>
 
