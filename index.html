@@ -35,7 +35,7 @@
 
 <body>
 
-	<div class="container-fluid text-center">
+	<div>
 		<!-- navigation bar -->
 <style type="text/css">
 	.topNav {
@@ -43,13 +43,14 @@
 	  overflow: hidden;
 	  margin-bottom: 10px;
 	}
-	.topNav a {
-	  display: inline-block;
-	  color: white;
-	  text-align: center;
-	  padding: 14px 16px;
-	  text-decoration: none;
-	  font-size: 17px;
+	.topNav a{
+		background-color: #1e7655;
+		display: inline-block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		font-size: 17px;
 	}
 	.topNav a:hover {
 	  background-color: #ddd;
@@ -72,6 +73,9 @@
 		width: 50px;
 		padding-left: 10px;
 	}
+	button{
+		border:none;
+	}
 	@media screen and (max-width: 600px) {
 	  .topNav a {display: none;}
 	  .topNav a.icon {
@@ -86,7 +90,7 @@
 	    right: 0;
 	    top: 0;
 	  }
-	  .topNav.responsive a {
+	  .topNav.responsive a{
 	    float: none;
 	    display: block;
 	    text-align: center;
@@ -108,21 +112,21 @@
 		<a href="/DaylilyCatalog/A">CATALOG</a>
 			<!--<a class="nav-item nav-link" href="/DaylilyGallery">GALLERY</a> -->
 		<a href="/DaylilySearch">SEARCH</a>
-		<a class="icon" href="javascript:void(0);" onclick="shirnkNav()">
+		<a class="icon" href="javascript:void(0)" onclick="shrinkNav()">
 	    	<i class="fa fa-bars"></i>
 	  	</a>
   	</div>
 </div>
 
 <script>
-	function shirnkNav() {
-	  var x = document.getElementById("myTopNav");
-	  if (x.className === "topNav") {
-	    x.className += " responsive";
-	  } else {
-	    x.className = "topNav";
-	  }
-	} 
+function shrinkNav() {
+  var x = document.getElementById("myTopNav");
+  if (x.className === "topNav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topNav";
+  }
+} 
 </script>
 
 		<style type="text/css">
@@ -132,6 +136,7 @@
 		width: 100%;
 		height: auto;
 		margin: -50px auto auto auto;
+		pointer-events: none;
 	}
 	#logo .cardText{
 		text-align: center;
@@ -257,7 +262,7 @@
 </style>
 <!-- logo with address and contact info -->
 <div id="logo">
-	<a href="/"><img src="assets/images/rollingOaksDayliliesLogo.png" class="img-fluid" alt="Rolling Oaks Daylilies"></a>
+	<img src="assets/images/rollingOaksDayliliesLogo.png" class="img-fluid" alt="Rolling Oaks Daylilies">
 	<div class="cardText">
 		<p> Rolling Oaks Daylilies - The Daylily Garden of Kay Cline</p>
 		<p> <a class="subtleLink" href="https://goo.gl/maps/BKg722pc9e52" target="_blank">4 Oak Lane | Picayune, MS 39466</a></p>
@@ -297,8 +302,8 @@
 				<input type="text" id="nameInput" placeholder="Name">
 				<input type="text" id="phoneNumberInput" placeholder="Phone Number">
 				<input type="text" id="emailInput" aria-describedby="emailHelp" placeholder="Email Address">
-				<textarea id="text" rows="5" placeholder="Message"></textarea>
-				<input type="button" id="submitBtn" value="SUBMIT">
+				<textarea type="text" id="messageInput" rows="5" placeholder="Message"></textarea>
+				<input id="submitBtn" value="SUBMIT" type="button">
 				<p style="padding-top: 20px">Or email me at <a href="mailto:kaymcline@gmail.com">kaymcline@gmail.com</a></p>
 		</form>
 	</div>
