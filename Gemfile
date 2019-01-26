@@ -12,3 +12,9 @@ gem "minima", "~> 2.0"
 
 gem 'jekyll-sitemap'
 
+gem 'jekyll-autoprefixer'
+
+gem 'sqlite3'
+
+gem 'csv'
+
