@@ -32,6 +32,30 @@
 
 		gtag('config', 'UA-108374166-1');
 	</script>
+
+<script>
+window.onload =  init;
+
+function init() {
+    showIEAlert();
+
+    function isIE() {
+        var ua = window.navigator.userAgent;
+        var is_ie = ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
+        return is_ie; 
+    };
+
+    //function to show alert if it's IE
+    function showIEAlert(){
+        if(isIE()){
+            console.log('using internet explorer');
+            alert("This website does not support the Microsoft Internet Explorer web browser.\n\nPlease use one of the supported modern web browers below to view this site:\n\nFirefox - https://www.mozilla.org/en-US/firefox\nSafari - https://www.apple.com/safari/\nChrome - https://www.google.com/chrome\nOpera - https://www.opera.com/\nMicrosoft Edge - https://www.microsoft.com/en-us/windows/microsoft-edge");
+        } else {
+            console.log("not internet explorer");
+        };
+    };
+};
+</script>
 <header>
 	<!-- navigation bar -->
 <style type="text/css">
@@ -51346,27 +51370,5 @@ function shrinkNav() {
 </div>
 	</div>
 </body>
-
-<script>
-document.onload = function(){
-    showIEAlert();
-
-    function isIE() {
-        var ua = window.navigator.userAgent;
-        var is_ie = ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
-        return is_ie; 
-    };
-
-    //function to show alert if it's IE
-    function showIEAlert(){
-        if(isIE()){
-            console.log('using internet explorer');
-            alert("This website does not support the Microsoft Internet Explorer web browser.\n\nPlease use one of the supported modern web browers below to view this site:\n\nFirefox - https://www.mozilla.org/en-US/firefox\nSafari - https://www.apple.com/safari/\nChrome - https://www.google.com/chrome\nOpera - https://www.opera.com/\nMicrosoft Edge - https://www.microsoft.com/en-us/windows/microsoft-edge");
-        } else {
-            console.log("not internet explorer");
-        };
-    };
-};
-</script>
 </html>
 
