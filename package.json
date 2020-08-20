@@ -1,6 +1,8 @@
 {
-  "type": "module",
   "dependencies": {
     "pg": "^7.18.2"
+  },
+  "scripts": {
+    "update": "node makeList"
   }
 }

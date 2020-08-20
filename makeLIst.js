@@ -1,14 +1,14 @@
-import fs from "fs";
-import pg from "pg";
+const fs = require("fs");
+const pg = require("pg");
 const Client = pg.Client;
 
 main();
 async function main() {
   const ahsData = await getAhsData();
   const ahsDataObj = {};
-  ahsData.forEach(data => (ahsDataObj[data.id] = data));
+  ahsData.forEach((data) => (ahsDataObj[data.id] = data));
   const userData = await getUserData(3);
-  const userDataObjs = userData.map(data => {
+  const userDataObjs = userData.map((data) => {
     let obj = {};
     obj = { ...obj, ...data, slug: slugify(data.cultivar) };
     if (data.price) {
@@ -20,7 +20,7 @@ async function main() {
       obj = {
         ...obj,
         ...ahsData,
-        url: `https://daylilies.org/DaylilyDB/detail.php?id=${data.ahsid}`
+        url: `https://daylilies.org/DaylilyDB/detail.php?id=${data.ahsid}`,
       };
     }
     return obj;
@@ -49,13 +49,13 @@ async function main() {
     "bloomsize",
     "ploidy",
     "sculpting",
-    "id"
+    "id",
   ];
   let output = "";
   let header = fields.join("\t");
   output += header + "\r\n";
-  const lines = userDataObjs.map(data => {
-    return fields.map(field => data[field]).join("\t");
+  const lines = userDataObjs.map((data) => {
+    return fields.map((field) => data[field]).join("\t");
   });
   lines.forEach((line, i) => {
     output += line;
@@ -63,7 +63,7 @@ async function main() {
       output += "\r\n";
     }
   });
-  fs.writeFileSync("testOut.txt", output);
+  fs.writeFileSync("./_data/Daylilies.json", JSON.stringify(userDataObjs));
 }
 
 async function getAhsData() {
@@ -72,7 +72,7 @@ async function getAhsData() {
     host: "makon-pg-db.ceywqhmw6rov.us-east-1.rds.amazonaws.com",
     database: "ahsData",
     password: "Ss0g3E5hCR2AgqWLH77j",
-    port: 5432
+    port: 5432,
   });
   client.connect();
   try {
@@ -90,7 +90,7 @@ async function getUserData(userId) {
     host: "makon-pg-db.ceywqhmw6rov.us-east-1.rds.amazonaws.com",
     database: "daylily_catalog",
     password: "Ss0g3E5hCR2AgqWLH77j",
-    port: 5432
+    port: 5432,
   });
   client.connect();
   try {
@@ -116,7 +116,7 @@ function slugify(string) {
     .toString()
     .toLowerCase()
     .replace(/\s+/g, "-") // Replace spaces with -
-    .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters
+    .replace(p, (c) => b.charAt(a.indexOf(c))) // Replace special characters
     .replace(/&/g, "-and-") // Replace & with 'and'
     .replace(/[^\w\-]+/g, "") // Remove all non-word characters
     .replace(/\-\-+/g, "-") // Replace multiple - with single -
